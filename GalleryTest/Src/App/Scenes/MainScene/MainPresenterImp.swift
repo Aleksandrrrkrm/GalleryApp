@@ -48,6 +48,7 @@ class MainPresenterImp: MainPresenter {
         
         photoUsecase.getPhoto(new: new, popular: popular, page: currentPage, name: search, id: nil)
             .observe(on: MainScheduler.instance)
+        
             .subscribe(
                 onSuccess: {
                     self.view?.stopTimer()
