@@ -1,0 +1,61 @@
+/* 
+  Scenes.strings
+  GalleryTest
+
+  Created by Александр Головин on 31.08.2022.
+  
+*/
+
+
+
+"token" = "accessToken";
+"refreshToken" = "refreshToken";
+"searchbarPlaceholder" = "Search";
+"idCellsPhoto" = "PhotoCell";
+"idcellsUserPhoto" = "UserPhotoCell";
+"password" = "Password";
+"userName" = "User Name";
+"email" = "Email";
+"confirmPassword" = "Confirm password";
+"asterix" = "*";
+"gillSans" = "Gill Sans";
+"emptyLine" = "";
+"avenirBlack" = "Avenir-Black";
+"new" = "New";
+"popular" = "Popular";
+"true" = "true";
+"false" = "false";
+"warning" = "Warning";
+"noneCamera" = "You don't have camera";
+"ok" = "OK";
+"noneGallery" = "You don't have permission to access gallery.";
+"selectPhoto" = "Select photo from gallery";
+"openCamera" = "Open camera";
+"cancel" = "Cancel";
+"next" = "Next";
+"myCell" = "myCell";
+"creationDate" = "creationDate";
+"apiEndpoint" = "https://gallery.prod1.webant.ru";
+"clientId" = "1_3fxvjh2ky7s44cskwcgo0k8cwwogkocs8k4cwcwsg0skcsw4ok";
+"secretId" = "4tf1qez2dc4ksg8w4og4co4w40s0gokwwkwkss8gc400owkokc";
+"placeholderForTextView" = "Добавьте описание к фото";
+"placeholderForName" = "Введите название для фото";
+"add" = "Add";
+"someThingWrong" = "Что-то не в порядке...";
+"recomendation" = "Выберете изображение или заполните все поля.";
+"recomendationInternet" = "Попробуйте снова либо проверьте интернет соединение.";
+"save" = "Save";
+"personalData" = "Personal data";
+"birthday" = " Birthday";
+"emailAdress" = "Email adress";
+"oldPassword" = "Old password";
+"newPassword" = "New password";
+"youCan" = "You can ";
+"deleteAcc" = "delete your account";
+"signOut" = "Sign Out";
+"areYouShure" = "Are you shure?";
+
+
+
+
+

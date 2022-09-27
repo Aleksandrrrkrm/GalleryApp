@@ -1,0 +1,69 @@
+PODS:
+  - DBDebugToolkit (0.9.0)
+  - DITranquillity (4.3.5):
+    - SwiftLazy (>= 1.1.6)
+  - Kingfisher (7.3.2)
+  - PKHUD (5.3.0)
+  - R.swift (6.1.0):
+    - R.swift.Library (~> 5.3.0)
+  - R.swift.Library (5.3.0)
+  - RxNetworkApiClient (0.1.5):
+    - RxSwift (~> 6.2.0)
+    - SwiftyJSON
+  - RxSwift (6.2.0)
+  - SnapKit (5.6.0)
+  - SwiftEntryKit (2.0.0)
+  - SwiftLazy (1.1.9)
+  - SwiftyJSON (5.0.1)
+
+DEPENDENCIES:
+  - DBDebugToolkit
+  - DITranquillity
+  - Kingfisher
+  - PKHUD (~> 5.0)
+  - R.swift
+  - "RxNetworkApiClient (from `ssh://git@gitlab.webant.ru:10022/ios/rxnetworkapiclient.git`, branch `master`)"
+  - SnapKit
+  - SwiftEntryKit (= 2.0.0)
+
+SPEC REPOS:
+  trunk:
+    - DBDebugToolkit
+    - DITranquillity
+    - Kingfisher
+    - PKHUD
+    - R.swift
+    - R.swift.Library
+    - RxSwift
+    - SnapKit
+    - SwiftEntryKit
+    - SwiftLazy
+    - SwiftyJSON
+
+EXTERNAL SOURCES:
+  RxNetworkApiClient:
+    :branch: master
+    :git: "ssh://git@gitlab.webant.ru:10022/ios/rxnetworkapiclient.git"
+
+CHECKOUT OPTIONS:
+  RxNetworkApiClient:
+    :commit: 88ee51c71d6afb2465bf54bda4bbd8ff23fb6ff0
+    :git: "ssh://git@gitlab.webant.ru:10022/ios/rxnetworkapiclient.git"
+
+SPEC CHECKSUMS:
+  DBDebugToolkit: 41663a36673c919dfe665003f159ea5621aee0db
+  DITranquillity: 6a80e6a1009b6149071817f28a586b1f6eed607b
+  Kingfisher: 0086ad83719761ba9b2cdaf6ef4d5b4878cbae23
+  PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
+  R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
+  R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
+  RxNetworkApiClient: fb28a02794b863f28d4cee8400398e347b98feea
+  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SwiftEntryKit: 61b5fa36f34a97dd8013e48a7345bc4c4720be9a
+  SwiftLazy: 1657354f43dbd6a0a79e00ad67558d655c77bdc9
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
+
+PODFILE CHECKSUM: 84053c688b7318f8ad8b555f3e456f4c60557589
+
+COCOAPODS: 1.11.3

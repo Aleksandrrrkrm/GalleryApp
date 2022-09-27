@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ny5-4x-nXe">
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Welcome View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="WelcomeStoryboard" id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="GalleryTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Intersect" translatesAutoresizingMaskIntoConstraints="NO" id="zmA-DJ-SsX">
+                                <rect key="frame" x="139" y="208" width="136" height="139"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="139" id="R6A-IX-vSg"/>
+                                    <constraint firstAttribute="width" constant="136" id="ddI-aQ-VhV"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G2e-UJ-Ubz">
+                                <rect key="frame" x="151.5" y="387" width="111" height="29"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="111" id="Kah-zD-tnN"/>
+                                    <constraint firstAttribute="height" constant="29" id="SAp-VB-4y7"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Welcome">
+                                        <attributes>
+                                            <font key="NSFont" size="22" name="Arial-BoldMT"/>
+                                            <font key="NSOriginalFont" size="22" name="Arial-BoldMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="!">
+                                        <attributes>
+                                            <font key="NSFont" size="22" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ex2-QM-nFb">
+                                <rect key="frame" x="35.5" y="456" width="343" height="36"/>
+                                <color key="backgroundColor" red="0.0022760143670000001" green="0.0023476957070000001" blue="0.0022158418009999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="5Qy-xE-2NY"/>
+                                    <constraint firstAttribute="width" constant="343" id="yeA-iv-ige"/>
+                                </constraints>
+                                <color key="tintColor" red="0.96946736339999995" green="1" blue="0.9438368841" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Create">
+                                            <attributes>
+                                                <font key="NSFont" size="12" name="Helvetica-Bold"/>
+                                                <font key="NSOriginalFont" size="12" name="Helvetica-Bold"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content=" ">
+                                            <attributes>
+                                                <font key="NSFont" size="12" name="Helvetica"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="an">
+                                            <attributes>
+                                                <font key="NSFont" size="12" name="Helvetica-Bold"/>
+                                                <font key="NSOriginalFont" size="12" name="Helvetica-Bold"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content=" ">
+                                            <attributes>
+                                                <font key="NSFont" size="12" name="Helvetica"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="account">
+                                            <attributes>
+                                                <font key="NSFont" size="12" name="Helvetica-Bold"/>
+                                                <font key="NSOriginalFont" size="12" name="Helvetica-Bold"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5C-yU-krs">
+                                <rect key="frame" x="35.5" y="502" width="343" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="1Qs-T0-FDS"/>
+                                    <constraint firstAttribute="width" constant="343" id="WuJ-Sd-3Vt"/>
+                                </constraints>
+                                <color key="tintColor" red="0.0022760143670000001" green="0.0023476957070000001" blue="0.0022158418009999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="I already have an account">
+                                            <attributes>
+                                                <font key="NSFont" size="12" name="Helvetica-Bold"/>
+                                                <font key="NSOriginalFont" size="12" name="Helvetica-Bold"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="G2e-UJ-Ubz" firstAttribute="top" secondItem="zmA-DJ-SsX" secondAttribute="bottom" constant="40" id="7tQ-mz-RTp"/>
+                            <constraint firstItem="j5C-yU-krs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Caz-h1-Y1C"/>
+                            <constraint firstItem="ex2-QM-nFb" firstAttribute="top" secondItem="G2e-UJ-Ubz" secondAttribute="bottom" constant="40" id="EBW-wE-Z6o"/>
+                            <constraint firstItem="zmA-DJ-SsX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="PWF-hq-TYS"/>
+                            <constraint firstItem="zmA-DJ-SsX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="epR-FE-aB6"/>
+                            <constraint firstItem="j5C-yU-krs" firstAttribute="top" secondItem="ex2-QM-nFb" secondAttribute="bottom" constant="10" id="jT9-g5-mFN"/>
+                            <constraint firstItem="ex2-QM-nFb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nvy-Tr-P34"/>
+                            <constraint firstItem="G2e-UJ-Ubz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uyy-tJ-1HA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Y9P-Pw-p53">
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="h2X-N3-a2j"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="buttonAuthorization" destination="j5C-yU-krs" id="q1o-EA-5sG"/>
+                        <outlet property="buttonRegister" destination="ex2-QM-nFb" id="Pz3-zz-Qod"/>
+                        <outlet property="imageWebant" destination="zmA-DJ-SsX" id="6KW-UM-0iV"/>
+                        <outlet property="labelWelcomeText" destination="G2e-UJ-Ubz" id="ItK-DB-M8C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3453.6231884057975" y="71.651785714285708"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2Cf-Fv-Fsx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ny5-4x-nXe" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0iE-QT-HFu">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="CYL-D6-rP4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AbK-5a-XlI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2543.4782608695655" y="71.651785714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Intersect" width="136" height="139"/>
+    </resources>
+</document>

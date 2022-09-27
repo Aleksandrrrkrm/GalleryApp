@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dXF-Ps-Jcb">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="cwf-4Q-LjS">
+            <objects>
+                <viewController storyboardIdentifier="MainStoryboard" id="dXF-Ps-Jcb" customClass="MainViewController" customModule="GalleryTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ofw-nN-W4a">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zwq-mb-ezs">
+                                <rect key="frame" x="0.0" y="44" width="414" height="45"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="j9e-fV-Db1"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MUD-Fv-BAq">
+                                <rect key="frame" x="0.0" y="89" width="414" height="773"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8fY-CZ-qBf">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="PhotoCell" reuseIdentifier="PhotoCell" id="cy0-FY-03p" customClass="MainPhotoCellImp" customModule="GalleryTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="DJK-Ru-s5w">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pSc-T4-YHB">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="pSc-T4-YHB" firstAttribute="top" secondItem="DJK-Ru-s5w" secondAttribute="top" id="K0u-Oe-cqQ"/>
+                                                <constraint firstItem="pSc-T4-YHB" firstAttribute="leading" secondItem="DJK-Ru-s5w" secondAttribute="leading" id="Rti-VA-oCN"/>
+                                                <constraint firstAttribute="trailing" secondItem="pSc-T4-YHB" secondAttribute="trailing" id="WJW-9s-HbV"/>
+                                                <constraint firstAttribute="bottom" secondItem="pSc-T4-YHB" secondAttribute="bottom" id="hCy-Tg-iSY"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="imageView" destination="pSc-T4-YHB" id="AwB-KJ-4Jl"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="W9d-gG-wEM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="MUD-Fv-BAq" firstAttribute="leading" secondItem="W9d-gG-wEM" secondAttribute="leading" id="4B5-65-qCa"/>
+                            <constraint firstItem="zwq-mb-ezs" firstAttribute="leading" secondItem="W9d-gG-wEM" secondAttribute="leading" id="9ed-v1-q8b"/>
+                            <constraint firstItem="W9d-gG-wEM" firstAttribute="bottom" secondItem="MUD-Fv-BAq" secondAttribute="bottom" id="aWA-EE-bm6"/>
+                            <constraint firstItem="W9d-gG-wEM" firstAttribute="trailing" secondItem="MUD-Fv-BAq" secondAttribute="trailing" id="iWB-2P-OuS"/>
+                            <constraint firstItem="W9d-gG-wEM" firstAttribute="trailing" secondItem="zwq-mb-ezs" secondAttribute="trailing" id="kfy-Jk-eCM"/>
+                            <constraint firstItem="MUD-Fv-BAq" firstAttribute="top" secondItem="zwq-mb-ezs" secondAttribute="bottom" id="nuc-Ey-QyH"/>
+                            <constraint firstItem="zwq-mb-ezs" firstAttribute="top" secondItem="W9d-gG-wEM" secondAttribute="top" id="qYj-MO-csn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="MUD-Fv-BAq" id="e5m-hk-UDl"/>
+                        <outlet property="segmentView" destination="zwq-mb-ezs" id="hdN-ab-oEh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k5G-Th-w48" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="730.43478260869574" y="-1260.2678571428571"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

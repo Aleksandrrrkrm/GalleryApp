@@ -1,0 +1,35 @@
+/* 
+  Errors .strings
+  GalleryTest
+
+  Created by Александр Головин on 05.09.2022.
+  
+*/
+
+"userNameInvalidSymbol" = "Имя может содержать только латинские буквы и цифры";
+"lengthPassword" = "Пароль должен сожержать минимум 6 символов";
+"invalidEmail" = "Неверный Email";
+"wrongPassword" = "Пароли не совпадают";
+"emptyFields" = "Необходимо заполнить все обязательные поля";
+// MARK: - SignInSignUpTextFieldError
+"passwordsAreDifferent" = "Пароли не совпадают";
+"equalPhoneNumber" = "Номер совпадает с текущим"; // при смене номера
+// ValidationUseCase
+"fieldIsEmpty" = "'%@' не может быть пустым";
+"forbiddenSymbolsForText" = "'%@' может содержать только буквы, пробел, дефис";
+"forbiddenSymbolsForPassword" = "'%@' может содержать только латинские буквы, цифры, знаки препинания";
+"forbiddenSymbolsForEmailOrUsername" = "'%@' может содержать только латинские буквы, цифры, знак подчёркивания, точку и минус";
+"incorrect" = "Неверный формат";
+"fieldIsTooShort" = "'%@' не может быть менее %@ символов";
+"fieldIsTooLong" = "'%@' не может быть более %@ символов";
+"fieldIsNoEqual" = "'%@' должно содержать %@ символов";
+"dateAlreadyPast" = "Дата уже прошла";
+"dateStillToCome" = "Дата еще не наступила";
+"lessThanRequiredTimeInterval" = "Меньше необходимого временного интервала";
+// MARK: - UserUseCaseError
+"remoteUserIdIsNil" = "Не удалось получить ID пользователя";
+"localUserIdIsNil" = "Не удалось найти идентификатор пользователя. Обновите профиль";
+// MARK: - ViolationEntity
+"violationEntityPhoneNumber" = "Номер телефона";
+"violationEntityEmail" = "Почта";
+"violationEntityName" = "Название";

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KKE-17-Ylw">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Photo View Controller-->
+        <scene sceneID="Kwa-yl-ETL">
+            <objects>
+                <viewController storyboardIdentifier="PhotoStoryboard" id="KKE-17-Ylw" customClass="PhotoViewController" customModule="GalleryTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="u09-hB-HPD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Aqc-v4-vP7">
+                                <rect key="frame" x="0.0" y="44" width="414" height="320"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="320" id="snF-8Q-2TH"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="vTn-MU-oPy" appends="YES" id="2ls-06-t3C"/>
+                                </connections>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="V2Z-Oc-eqg">
+                                <rect key="frame" x="0.0" y="414" width="414" height="482"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tn8-t2-yJd">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="myCell" reuseIdentifier="myCell" id="Dei-Pe-EyQ" customClass="MyCell" customModule="GalleryTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1e4-d5-PtH">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NV3-xr-DIm">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="NV3-xr-DIm" secondAttribute="bottom" id="2dv-UP-YAc"/>
+                                                <constraint firstItem="NV3-xr-DIm" firstAttribute="top" secondItem="1e4-d5-PtH" secondAttribute="top" id="Cyu-8J-yWE"/>
+                                                <constraint firstAttribute="trailing" secondItem="NV3-xr-DIm" secondAttribute="trailing" id="Nuh-xe-2V9"/>
+                                                <constraint firstItem="NV3-xr-DIm" firstAttribute="leading" secondItem="1e4-d5-PtH" secondAttribute="leading" id="yFP-dJ-mSd"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="imageView" destination="NV3-xr-DIm" id="qjL-zp-uXl"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Select photo:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLE-cJ-gA3">
+                                <rect key="frame" x="0.0" y="364" width="414" height="50"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Nfl-oo-HU2"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XLE-cJ-gA3" firstAttribute="leading" secondItem="Nfl-oo-HU2" secondAttribute="leading" id="3Q2-pQ-41S"/>
+                            <constraint firstItem="Aqc-v4-vP7" firstAttribute="centerX" secondItem="u09-hB-HPD" secondAttribute="centerX" id="7sy-EC-GHG"/>
+                            <constraint firstAttribute="bottom" secondItem="V2Z-Oc-eqg" secondAttribute="bottom" id="A6T-uf-n2F"/>
+                            <constraint firstItem="Aqc-v4-vP7" firstAttribute="trailing" secondItem="Nfl-oo-HU2" secondAttribute="trailing" id="A9d-WI-aDl"/>
+                            <constraint firstItem="Aqc-v4-vP7" firstAttribute="leading" secondItem="Nfl-oo-HU2" secondAttribute="leading" id="T2G-My-Zhc"/>
+                            <constraint firstItem="V2Z-Oc-eqg" firstAttribute="trailing" secondItem="Nfl-oo-HU2" secondAttribute="trailing" id="bPt-ua-WtV"/>
+                            <constraint firstItem="Nfl-oo-HU2" firstAttribute="trailing" secondItem="XLE-cJ-gA3" secondAttribute="trailing" id="dGf-w6-ZRL"/>
+                            <constraint firstItem="Aqc-v4-vP7" firstAttribute="top" secondItem="Nfl-oo-HU2" secondAttribute="top" id="ksC-f3-U2B"/>
+                            <constraint firstItem="V2Z-Oc-eqg" firstAttribute="top" secondItem="XLE-cJ-gA3" secondAttribute="bottom" id="wUH-AX-CBH"/>
+                            <constraint firstItem="V2Z-Oc-eqg" firstAttribute="leading" secondItem="Nfl-oo-HU2" secondAttribute="leading" id="xYF-L8-8Q3"/>
+                            <constraint firstItem="XLE-cJ-gA3" firstAttribute="top" secondItem="Aqc-v4-vP7" secondAttribute="bottom" id="zCi-WC-lMt"/>
+                            <constraint firstItem="V2Z-Oc-eqg" firstAttribute="top" secondItem="Aqc-v4-vP7" secondAttribute="bottom" constant="50" id="zPk-RH-r4P"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="V2Z-Oc-eqg" id="RLg-7Q-Yvb"/>
+                        <outlet property="imageView" destination="Aqc-v4-vP7" id="yUq-Q5-UBL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dGi-5F-Xkz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="vTn-MU-oPy">
+                    <connections>
+                        <action selector="tap:" destination="KKE-17-Ylw" id="Q8X-Sg-B8T"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="360.86956521739131" y="-6.0267857142857144"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="placeholder" width="1200" height="800"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
