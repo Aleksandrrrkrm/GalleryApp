@@ -14,6 +14,7 @@ protocol MainView {
     
     var collectionView: UICollectionView! { get }
     
+    
     func startTimer()
     func stopTimer()
 }

@@ -14,7 +14,7 @@ import UIKit
 protocol MainPresenter {
     
     func openDetailScene(photoName: String, photo: UIImage, description: String?)
-    
+   
     func getPhoto(isNew: Bool?, for search: String?)
     
     var arrayPhotoData: [PhotoData] { get set }
@@ -22,4 +22,6 @@ protocol MainPresenter {
     var currentPage: Int { get set }
     
     var totalItems: Int? { get set }
+    
+    
 }

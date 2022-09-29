@@ -14,11 +14,7 @@ import Photos
 import PhotosUI
 
 class PhotoPresenterImp: PhotoPresenter {
-   
     
-   
-    
-    var description: String?
     var imagePicker = UIImagePickerController()
     
     private var view: PhotoView?
@@ -57,7 +53,8 @@ class PhotoPresenterImp: PhotoPresenter {
                 ascending: false)
         ]
       
-        allPhotos = PHAsset.fetchAssets(with: .image, options: allPhotosOptions)
+        allPhotos = PHAsset.fetchAssets(with: .image,
+                                        options: allPhotosOptions)
        
         smartAlbums = PHAssetCollection.fetchAssetCollections(
             with: .smartAlbum,
@@ -73,8 +70,6 @@ class PhotoPresenterImp: PhotoPresenter {
         } else {
             countOfPhoto = allPhotos.count
         }
-        
-        
        
         for photo in 0..<countOfPhoto {
             let firstAsset = allPhotos[photo]
@@ -84,7 +79,10 @@ class PhotoPresenterImp: PhotoPresenter {
                 targetSize: CGSize(width: 300, height: 300),
                 contentMode: .aspectFill,
                 options: requestOptions)  { (image, _) -> Void in
-                    self.allImages.append(image!)
+                    guard let image = image else {
+                        return 
+                    }
+                    self.allImages.append(image)
                 }
             view?.collectionView.reloadData()
         }

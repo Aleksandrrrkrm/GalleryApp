@@ -68,7 +68,8 @@ class AddPhotoViewController: UIViewController {
     private func configureNameLabel() {
         
         view.addSubview(nameLabel)
-        nameLabel.font = UIFont(name: R.string.scenes.avenirBlack(), size: 15)
+        nameLabel.font = UIFont(name: R.string.scenes.avenirBlack(),
+                                size: 15)
         nameLabel.layer.borderWidth = 0.5
         nameLabel.layer.cornerRadius = 10
         nameLabel.text = placeholderForName
@@ -85,7 +86,8 @@ class AddPhotoViewController: UIViewController {
     private func configureTextView() {
         
         view.addSubview(myTextView)
-        myTextView.font = UIFont(name: R.string.scenes.avenirBlack(), size: 15)
+        myTextView.font = UIFont(name: R.string.scenes.avenirBlack(),
+                                 size: 15)
         myTextView.layer.borderWidth = 0.5
         myTextView.layer.cornerRadius = 10
         myTextView.text = placeholderForTextView
@@ -102,7 +104,8 @@ class AddPhotoViewController: UIViewController {
     private func configureTapRecognaizer() {
         
         view.addGestureRecognizer(tap)
-        tap.addTarget(self, action: #selector(tapPressed))
+        tap.addTarget(self,
+                      action: #selector(tapPressed))
     }
     
     
@@ -121,7 +124,11 @@ class AddPhotoViewController: UIViewController {
     func startTimer() {
         self.activityIndicatorView.isHidden = false
         if timer == nil {
-            timer = Timer.scheduledTimer(timeInterval:0.0, target: self, selector: #selector(self.animateView), userInfo: nil, repeats: false)
+            timer = Timer.scheduledTimer(timeInterval:0.0,
+                                         target: self,
+                                         selector: #selector(self.animateView),
+                                         userInfo: nil,
+                                         repeats: false)
         }
     }
     
@@ -132,11 +139,18 @@ class AddPhotoViewController: UIViewController {
     }
     
     @objc func animateView() {
-        UIView.animate(withDuration: 0.7, delay: 0.0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.7,
+                       delay: 0.0,
+                       options: .curveEaseInOut,
+                       animations: {
             self.activityIndicatorView.transform = self.activityIndicatorView.transform.rotated(by: CGFloat(Double.pi))
         }, completion: { (finished) in
             if self.timer != nil {
-                self.timer = Timer.scheduledTimer(timeInterval:0.0, target: self, selector: #selector(self.animateView), userInfo: nil, repeats: false)
+                self.timer = Timer.scheduledTimer(timeInterval:0.0,
+                                                  target: self,
+                                                  selector: #selector(self.animateView),
+                                                  userInfo: nil,
+                                                  repeats: false)
             }
         })
     }
@@ -166,24 +180,29 @@ class AddPhotoViewController: UIViewController {
     
     @objc func addButtonPressed() {
         
-        if myTextView.text == placeholderForTextView || nameLabel.text == placeholderForName || imageView.image == R.image.placeholder() {
+        if myTextView.text == placeholderForTextView || nameLabel.text == placeholderForName || imageView.image == R.image.placeholder() || myTextView.text != nil || nameLabel.text != nil {
             
             errorAlert(R.string.scenes.someThingWrong(), message: R.string.scenes.recomendation())
         } else {
             startTimer()
-            guard let name = nameLabel.text else { return }
-            guard let description = myTextView.text else { return }
+            guard let name = nameLabel.text else {
+                return
+            }
+            guard let description = myTextView.text else {
+                return
+            }
             
-            let photo = PhotoPostEntity(name: name, description: description, image: nil)
-            presenter?.addDataButtonPressed(imageView.image!, photo)
+            let photo = PhotoPostEntity(name: name,
+                                        description: description,
+                                        image: nil)
+            guard let image = imageView.image else { 
+                return
+                }
+            presenter?.addDataButtonPressed(image,
+                                            photo)
             
         }
     }
-  
-    
-   
-    
-    
 }
 
 
@@ -197,9 +216,15 @@ extension AddPhotoViewController: AddPhotoView {
         guard let message = message else {
             return
         }
-        let alert  = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: R.string.scenes.ok(), style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        let alert  = UIAlertController(title: title,
+                                       message: message,
+                                       preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: R.string.scenes.ok(),
+                                      style: .default,
+                                      handler: nil))
+        self.present(alert,
+                     animated: true,
+                     completion: nil)
     }
     
 }
@@ -212,14 +237,14 @@ extension AddPhotoViewController: UITextViewDelegate {
         
         switch textView {
         case myTextView:
-            if myTextView.textColor == UIColor.lightGray {
+            if myTextView.textColor == .lightGray {
                 myTextView.text = nil
-                myTextView.textColor = UIColor.black
+                myTextView.textColor = .black
             }
         case nameLabel:
-            if nameLabel.textColor == UIColor.lightGray {
+            if nameLabel.textColor == .lightGray {
                 nameLabel.text = nil
-                nameLabel.textColor = UIColor.black
+                nameLabel.textColor = .black
             }
         default:
             return

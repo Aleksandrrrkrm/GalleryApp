@@ -25,6 +25,7 @@
 		C2170B2428C740DC00BC1403 /* PhotoGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2170B2328C740DC00BC1403 /* PhotoGateway.swift */; };
 		C2170B2628C740F000BC1403 /* PhotoUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2170B2528C740F000BC1403 /* PhotoUsecase.swift */; };
 		C2170B2928C775A000BC1403 /* MainPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2170B2828C775A000BC1403 /* MainPhotoCell.swift */; };
+		C2213CF328E30A1C000D6A11 /* Authtorization + TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2213CF228E30A1C000D6A11 /* Authtorization + TextField.swift */; };
 		C22CB2F528DDE47C00AC5A81 /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22CB2EF28DDE47C00AC5A81 /* SettingsRouter.swift */; };
 		C22CB2F628DDE47C00AC5A81 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22CB2F028DDE47C00AC5A81 /* SettingsViewController.swift */; };
 		C22CB2F728DDE47C00AC5A81 /* SettingsPresenterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22CB2F128DDE47C00AC5A81 /* SettingsPresenterImp.swift */; };
@@ -35,6 +36,8 @@
 		C22CB30228DDFE6400AC5A81 /* UserUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22CB30128DDFE6400AC5A81 /* UserUsecase.swift */; };
 		C22CB30428DDFE7600AC5A81 /* UserGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22CB30328DDFE7600AC5A81 /* UserGateway.swift */; };
 		C22CB30728DE13CE00AC5A81 /* ProfilePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22CB30628DE13CE00AC5A81 /* ProfilePhotoCell.swift */; };
+		C239119B28E58FD6003B0578 /* UserDefaultsUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239119A28E58FD6003B0578 /* UserDefaultsUsecase.swift */; };
+		C23B950628E44B2600ACB804 /* ViewController + Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23B950528E44B2500ACB804 /* ViewController + Keyboard.swift */; };
 		C24C990128DB5AD600B3DB18 /* AddPhotoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24C98FB28DB5AD600B3DB18 /* AddPhotoRouter.swift */; };
 		C24C990228DB5AD600B3DB18 /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24C98FC28DB5AD600B3DB18 /* AddPhotoViewController.swift */; };
 		C24C990328DB5AD600B3DB18 /* AddPhotoPresenterImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24C98FD28DB5AD600B3DB18 /* AddPhotoPresenterImp.swift */; };
@@ -142,6 +145,7 @@
 		C2170B2328C740DC00BC1403 /* PhotoGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGateway.swift; sourceTree = "<group>"; };
 		C2170B2528C740F000BC1403 /* PhotoUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUsecase.swift; sourceTree = "<group>"; };
 		C2170B2828C775A000BC1403 /* MainPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPhotoCell.swift; sourceTree = "<group>"; };
+		C2213CF228E30A1C000D6A11 /* Authtorization + TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Authtorization + TextField.swift"; sourceTree = "<group>"; };
 		C22CB2EF28DDE47C00AC5A81 /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
 		C22CB2F028DDE47C00AC5A81 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C22CB2F128DDE47C00AC5A81 /* SettingsPresenterImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenterImp.swift; sourceTree = "<group>"; };
@@ -152,6 +156,8 @@
 		C22CB30128DDFE6400AC5A81 /* UserUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUsecase.swift; sourceTree = "<group>"; };
 		C22CB30328DDFE7600AC5A81 /* UserGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGateway.swift; sourceTree = "<group>"; };
 		C22CB30628DE13CE00AC5A81 /* ProfilePhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoCell.swift; sourceTree = "<group>"; };
+		C239119A28E58FD6003B0578 /* UserDefaultsUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsUsecase.swift; sourceTree = "<group>"; };
+		C23B950528E44B2500ACB804 /* ViewController + Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController + Keyboard.swift"; sourceTree = "<group>"; };
 		C24C98FB28DB5AD600B3DB18 /* AddPhotoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoRouter.swift; sourceTree = "<group>"; };
 		C24C98FC28DB5AD600B3DB18 /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
 		C24C98FD28DB5AD600B3DB18 /* AddPhotoPresenterImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoPresenterImp.swift; sourceTree = "<group>"; };
@@ -336,6 +342,21 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		C2213CF128E30A04000D6A11 /* VCExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				C2213CF228E30A1C000D6A11 /* Authtorization + TextField.swift */,
+			);
+			path = VCExtensions;
+			sourceTree = "<group>";
+		};
+		C2213CF428E30A5C000D6A11 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		C22CB2ED28DDE44400AC5A81 /* SettingsScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,6 +476,7 @@
 				C2170B2528C740F000BC1403 /* PhotoUsecase.swift */,
 				C2E4BCD428DC953600FA4299 /* PostPhotoUseCase.swift */,
 				C22CB30128DDFE6400AC5A81 /* UserUsecase.swift */,
+				C239119A28E58FD6003B0578 /* UserDefaultsUsecase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -561,6 +583,8 @@
 		C25CF54228B77E1C003D332D /* AuthorizationScene */ = {
 			isa = PBXGroup;
 			children = (
+				C2213CF428E30A5C000D6A11 /* Cells */,
+				C2213CF128E30A04000D6A11 /* VCExtensions */,
 				C25CF54328B77E88003D332D /* AuthorizationSceneStoryboard.storyboard */,
 				C25CF54428B77E88003D332D /* AuthorizationSceneRouter.swift */,
 				C25CF54528B77E88003D332D /* AuthorizationSceneViewController.swift */,
@@ -695,6 +719,7 @@
 				C2FC627B28D20FA200520F4D /* Header + Equatable.swift */,
 				C2D94BC828D892B0009A532A /* Array.swift */,
 				C299963828E203150015C380 /* ReuseStrings.swift */,
+				C23B950528E44B2500ACB804 /* ViewController + Keyboard.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -857,6 +882,7 @@
 				C253797428B8FBA80012FE19 /* RegistrationGateway.swift in Sources */,
 				C25CF54A28B77E88003D332D /* AuthorizationSceneRouter.swift in Sources */,
 				C29FD16728BD0A190047FAE6 /* MainRouter.swift in Sources */,
+				C239119B28E58FD6003B0578 /* UserDefaultsUsecase.swift in Sources */,
 				C27E7C8528DC8AFC00F83994 /* PhotoPostEntity.swift in Sources */,
 				C22CB30028DDFD9000AC5A81 /* CurrentUserEntity.swift in Sources */,
 				C253796D28B8CA230012FE19 /* Config.swift in Sources */,
@@ -929,6 +955,7 @@
 				C2553E5328CB3479009D97A3 /* DetailConfigurator.swift in Sources */,
 				C22CB2FD28DDE48500AC5A81 /* SettingsView.swift in Sources */,
 				C2F89F6B28C09652004C8E3C /* ProfileViewController.swift in Sources */,
+				C23B950628E44B2600ACB804 /* ViewController + Keyboard.swift in Sources */,
 				C2F89F8228C096BB004C8E3C /* PhotoPresenter.swift in Sources */,
 				C22CB30728DE13CE00AC5A81 /* ProfilePhotoCell.swift in Sources */,
 				C2553E5828CB3485009D97A3 /* DetailPresenter.swift in Sources */,
@@ -941,6 +968,7 @@
 				C253796B28B8C6970012FE19 /* RegistrationEntity.swift in Sources */,
 				C22CB2F828DDE47C00AC5A81 /* SettingsConfigurator.swift in Sources */,
 				C253795F28B8B0530012FE19 /* ApiEndpoint.swift in Sources */,
+				C2213CF328E30A1C000D6A11 /* Authtorization + TextField.swift in Sources */,
 				C24C990128DB5AD600B3DB18 /* AddPhotoRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1017,7 +1045,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1071,7 +1099,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1092,6 +1120,8 @@
 				DEVELOPMENT_TEAM = HX5B5J7WYA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GalleryTest/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1121,6 +1151,8 @@
 				DEVELOPMENT_TEAM = HX5B5J7WYA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GalleryTest/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

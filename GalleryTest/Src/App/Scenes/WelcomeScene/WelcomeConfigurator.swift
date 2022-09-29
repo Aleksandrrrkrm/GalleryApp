@@ -26,6 +26,7 @@ enum WelcomeConfigurator {
         }
         
         let navigationController = UINavigationController(rootViewController: view)
-        navigationController.pushViewController(navigationController, animated: true)
+        navigationController.pushViewController(navigationController,
+                                                animated: true)
     }
 }

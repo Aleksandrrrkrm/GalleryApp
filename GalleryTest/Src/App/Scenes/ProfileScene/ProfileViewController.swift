@@ -30,8 +30,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegateFlowLayou
         ProfileConfigurator.configure(view: self)
         configureNavTitle()
         
-        presenter?.currentUserInfo()
-        presenter?.getPhoto(idUser: 99)
+        presenter?.getPhoto()
         
         navigationItem.backButtonTitle = R.string.scenes.cancel()
         navigationController?.navigationBar.tintColor = .black
@@ -49,11 +48,16 @@ class ProfileViewController: UIViewController, UICollectionViewDelegateFlowLayou
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
             heightDimension: .absolute(120))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 3)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                       subitem: item,
+                                                       count: 3)
         group.interItemSpacing = .fixed(spacing)
         
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = .init(top: spacing, leading: spacing, bottom: spacing, trailing: spacing)
+        section.contentInsets = .init(top: spacing,
+                                      leading: spacing,
+                                      bottom: spacing,
+                                      trailing: spacing)
         section.interGroupSpacing = spacing
         
         let layout = UICollectionViewCompositionalLayout(section: section)
@@ -88,16 +92,20 @@ extension ProfileViewController: ProfileView {
 
 extension ProfileViewController : UICollectionViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
         return presenter?.arrayUserPhotoData.count ?? 0
     }
     
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.string.scenes.idcellsUserPhoto(), for: indexPath) as? ProfilePhotoCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.string.scenes.idcellsUserPhoto(),
+                                                         for: indexPath) as? ProfilePhotoCell {
             
-            guard let photo = presenter?.arrayUserPhotoData[indexPath.row].image else { return UICollectionViewCell() }
+            guard let photo = presenter?.arrayUserPhotoData[indexPath.row].image else {
+                return UICollectionViewCell()
+            }
             cell.setupCell(stringImage: photo.name)
             cell.arrayDataForCell = presenter?.arrayUserPhotoData[indexPath.row]
             return cell
@@ -106,9 +114,6 @@ extension ProfileViewController : UICollectionViewDataSource {
             return UICollectionViewCell()
         }
     }
-    
-    
-    
 }
 
 extension ProfileViewController: UICollectionViewDelegate {

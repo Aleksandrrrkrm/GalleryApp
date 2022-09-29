@@ -13,10 +13,7 @@ import SnapKit
 import Photos
 import PhotosUI
 
-
-
 class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
     
     //MARK: - OUTLETS
     
@@ -34,6 +31,8 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       
 
         navigationItem.backButtonTitle = R.string.scenes.emptyLine()
         navigationController?.navigationBar.tintColor = .black
@@ -52,7 +51,9 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         collectionView.dataSource = self
         imagePicker.delegate = self
         configureNavTitle()
+    
         getPhoto()
+    
     }
     
     
@@ -69,11 +70,16 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
             heightDimension: .absolute(120))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 3)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                       subitem: item,
+                                                       count: 3)
         group.interItemSpacing = .fixed(spacing)
         
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = .init(top: spacing, leading: spacing, bottom: spacing, trailing: spacing)
+        section.contentInsets = .init(top: spacing,
+                                      leading: spacing,
+                                      bottom: spacing,
+                                      trailing: spacing)
         section.interGroupSpacing = spacing
         
         let layout = UICollectionViewCompositionalLayout(section: section)
@@ -92,15 +98,23 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
    
     func cameraButton() {
-        
+     
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
             imageLibrary.sourceType = .camera
             imageLibrary.allowsEditing = true
-            self.present(imageLibrary, animated: true, completion: nil)
+            self.present(imageLibrary,
+                         animated: true,
+                         completion: nil)
         } else {
-            let alert  = UIAlertController(title: R.string.scenes.warning(), message: R.string.scenes.noneCamera(), preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: R.string.scenes.ok(), style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+            let alert  = UIAlertController(title: R.string.scenes.warning(),
+                                           message: R.string.scenes.noneCamera(),
+                                           preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: R.string.scenes.ok(),
+                                          style: .default,
+                                          handler: nil))
+                    self.present(alert,
+                                 animated: true,
+                                 completion: nil)
         }
     }
   
@@ -111,19 +125,25 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
             imageLibrary.sourceType = .photoLibrary
             imageLibrary.allowsEditing = false
             self.present(imageLibrary, animated: true, completion: nil)
-        } else
-        {
-            let alert  = UIAlertController(title:
-                                            R.string.scenes.warning(), message: R.string.scenes.noneGallery(), preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: R.string.scenes.ok(), style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+        } else {
+            let alert  = UIAlertController(title:R.string.scenes.warning(),
+                                           message: R.string.scenes.noneGallery(),
+                                           preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: R.string.scenes.ok(),
+                                          style: .default,
+                                          handler: nil))
+            self.present(alert,
+                         animated: true,
+                         completion: nil)
         }
     }
 
     // TapOnTheImageView
     @IBAction func tap(_ sender: UITapGestureRecognizer) {
     
-        self.present(actionSheet, animated: true, completion: nil)
+        self.present(actionSheet,
+                     animated: true,
+                     completion: nil)
     }
     
     
@@ -131,15 +151,21 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     private func addActionsForSheetAlert() {
         
-        actionSheet.addAction(UIAlertAction(title: R.string.scenes.selectPhoto(), style: .default, handler: { action in
+        actionSheet.addAction(UIAlertAction(title: R.string.scenes.selectPhoto(),
+                                            style: .default,
+                                            handler: { action in
             self.galleryButton()
         }))
         
-        actionSheet.addAction(UIAlertAction(title: R.string.scenes.openCamera(), style: .default, handler: { action in
+        actionSheet.addAction(UIAlertAction(title: R.string.scenes.openCamera(),
+                                            style: .default,
+                                            handler: { action in
             self.cameraButton()
         }))
         
-        actionSheet.addAction(UIAlertAction(title: R.string.scenes.cancel(), style: .cancel, handler: { _ in
+        actionSheet.addAction(UIAlertAction(title: R.string.scenes.cancel(),
+                                            style: .cancel,
+                                            handler: { _ in
             
         }))
     }
@@ -162,7 +188,8 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[.originalImage] as? UIImage {
             print(pickedImage)
             image = pickedImage
@@ -191,7 +218,6 @@ extension PhotoViewController: UICollectionViewDataSource, UICollectionViewDeleg
             let photo = presenter?.allImages[indexPath.row]
             cell.imageView.image = photo
             return cell
-            
         } else {
             return UICollectionViewCell()
         }

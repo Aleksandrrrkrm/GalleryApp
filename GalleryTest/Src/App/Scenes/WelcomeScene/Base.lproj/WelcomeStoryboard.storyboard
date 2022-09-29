@@ -57,32 +57,9 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
                                     <attributedString key="attributedTitle">
-                                        <fragment content="Create">
+                                        <fragment content="Create an account">
                                             <attributes>
                                                 <font key="NSFont" size="12" name="Helvetica-Bold"/>
-                                                <font key="NSOriginalFont" size="12" name="Helvetica-Bold"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content=" ">
-                                            <attributes>
-                                                <font key="NSFont" size="12" name="Helvetica"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="an">
-                                            <attributes>
-                                                <font key="NSFont" size="12" name="Helvetica-Bold"/>
-                                                <font key="NSOriginalFont" size="12" name="Helvetica-Bold"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content=" ">
-                                            <attributes>
-                                                <font key="NSFont" size="12" name="Helvetica"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="account">
-                                            <attributes>
-                                                <font key="NSFont" size="12" name="Helvetica-Bold"/>
-                                                <font key="NSOriginalFont" size="12" name="Helvetica-Bold"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>

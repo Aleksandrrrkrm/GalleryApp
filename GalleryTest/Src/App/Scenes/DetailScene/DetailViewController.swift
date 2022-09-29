@@ -12,8 +12,6 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-
-    
     @IBOutlet weak var imageScroll: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -23,6 +21,7 @@ class DetailViewController: UIViewController {
     var name: String?
     var descriptionPhoto: String?
     internal var presenter: DetailPresenter?
+    // TODO: Что это?
     let wight: CGFloat = 414
     let hight: CGFloat = 272
     
@@ -50,12 +49,18 @@ extension DetailViewController: UIScrollViewDelegate {
         return imageView
     }
 
-    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+    func scrollViewDidEndZooming(_ scrollView: UIScrollView,
+                                 with view: UIView?,
+                                 atScale scale: CGFloat) {
         if scrollView == imageScroll {
-            UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, animations: {
+            UIView.animate(withDuration: 0.4,
+                           delay: 0.0,
+                           usingSpringWithDamping: 0.5,
+                           initialSpringVelocity: 0.8,
+                           animations: {
                 self.imageScroll.zoomScale = 1.0
-            }, completion: nil)
-            
+            },
+                           completion: nil)
         }
     }
 }

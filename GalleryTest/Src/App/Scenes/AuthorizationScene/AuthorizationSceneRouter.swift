@@ -24,7 +24,6 @@ class AuthorizationSceneRouter: BaseRouter {
             let appDelegate = (UIApplication.shared.delegate as? AppDelegate)
             appDelegate?.openMainScreen(window: appDelegate?.window)
         }
-        
     }
     
     

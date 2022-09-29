@@ -16,6 +16,8 @@ enum AuthorizationSceneConfigurator {
         let router = AuthorizationSceneRouter(view)
         let presenter = AuthorizationScenePresenterImp(view,
                                                        router,
+                                                       DI.resolve(),
+                                                       DI.resolve(),
                                                        DI.resolve())
         view.presenter = presenter
     }
@@ -39,14 +41,9 @@ enum AuthorizationSceneConfigurator {
         
         if isRegVCAlreadyInStack {
             navigationController.popViewController(animated: true)
-            print(isRegVCAlreadyInStack)
         } else {
-            navigationController.pushViewController(view, animated: true)
-            print(isRegVCAlreadyInStack)
+            navigationController.pushViewController(view,
+                                                    animated: true)
         }
-        
-        
-        
     }
-    
 }

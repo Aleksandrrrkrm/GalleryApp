@@ -15,16 +15,19 @@ enum PhotoConfigurator {
     
     static func configure(view: PhotoViewController) {
         let router = PhotoRouter(view)
-        let presenter = PhotoPresenterImp(view, router)
+        let presenter = PhotoPresenterImp(view,
+                                          router)
         view.presenter = presenter
     }
 
-    static func open(navigationController: UINavigationController, photo: UIImage) {
+    static func open(navigationController: UINavigationController,
+                     photo: UIImage) {
         guard let view = R.storyboard.photoStoryboard.instantiateInitialViewController() else {
             return
         }
         Self.configure(view: view)
-        navigationController.pushViewController(view, animated: true)
+        navigationController.pushViewController(view,
+                                                animated: true)
         view.image = photo
     }
     
@@ -35,10 +38,7 @@ enum PhotoConfigurator {
             return
         }
         Self.configure(view: view)
-        
-        print(photo)
         view.imageView.image = photo
     }
-    
     
 }

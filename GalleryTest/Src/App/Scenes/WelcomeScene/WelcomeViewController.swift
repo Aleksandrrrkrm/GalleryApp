@@ -30,9 +30,7 @@ class WelcomeViewController: UIViewController {
             WelcomeConfigurator.configure(view: self)
         }
         
-        configureButtons()
-        
-      
+        configureButtons() 
     }
     
     
@@ -48,14 +46,17 @@ class WelcomeViewController: UIViewController {
     // MARK: - Configure Views
     func configureButtons() {
         
-        buttonRegister.layer.cornerRadius = 5
+        buttonRegister.layer.cornerRadius = 4
         buttonRegister.tag = 1
-        buttonRegister.addTarget(self, action: #selector(click(button:)), for: .touchUpInside)
-        buttonAuthorization.layer.cornerRadius = 5
+        buttonRegister.addTarget(self,
+                                 action: #selector(click(button:)),
+                                 for: .touchUpInside)
+        buttonAuthorization.layer.cornerRadius = 4
         buttonAuthorization.layer.borderWidth = 1
         buttonAuthorization.tag = 2
-        buttonAuthorization.addTarget(self, action: #selector(click(button:)), for: .touchUpInside)
-        
+        buttonAuthorization.addTarget(self,
+                                      action: #selector(click(button:)),
+                                      for: .touchUpInside)
     }
     
     @objc func click(button sender: UIButton) {
@@ -68,11 +69,8 @@ class WelcomeViewController: UIViewController {
             return
         }
     }
-    
 }
 
 // MARK: - Extensions
 
-extension WelcomeViewController: WelcomeView {
-    
-}
+extension WelcomeViewController: WelcomeView {}

@@ -12,7 +12,8 @@ import UIKit
 
 protocol AddPhotoView {
     
-    func errorAlert(_ title: String?, message: String?)
+    func errorAlert(_ title: String?,
+                    message: String?)
     
     func startTimer()
     func stopTimer()

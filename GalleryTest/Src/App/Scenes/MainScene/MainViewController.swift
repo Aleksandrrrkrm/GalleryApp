@@ -68,7 +68,9 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout {
         }
         
         //action
-        custom.addTarget(self, action: #selector(segmentValueChanged), for: .valueChanged)
+        custom.addTarget(self,
+                         action: #selector(segmentValueChanged),
+                         for: .valueChanged)
     }
     
     
@@ -87,7 +89,11 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     func startTimer() {
         self.imageView.isHidden = false
         if timer == nil {
-            timer = Timer.scheduledTimer(timeInterval:0.0, target: self, selector: #selector(self.animateView), userInfo: nil, repeats: false)
+            timer = Timer.scheduledTimer(timeInterval:0.0,
+                                         target: self,
+                                         selector: #selector(self.animateView),
+                                         userInfo: nil,
+                                         repeats: false)
         }
     }
     
@@ -98,11 +104,18 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     }
     
     @objc func animateView() {
-        UIView.animate(withDuration: 0.7, delay: 0.0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.7,
+                       delay: 0.0,
+                       options: .curveEaseInOut,
+                       animations: {
             self.imageView.transform = self.imageView.transform.rotated(by: CGFloat(Double.pi))
         }, completion: { (finished) in
             if self.timer != nil {
-                self.timer = Timer.scheduledTimer(timeInterval:0.0, target: self, selector: #selector(self.animateView), userInfo: nil, repeats: false)
+                self.timer = Timer.scheduledTimer(timeInterval:0.0,
+                                                  target: self,
+                                                  selector: #selector(self.animateView),
+                                                  userInfo: nil,
+                                                  repeats: false)
             }
         })
     }
@@ -119,6 +132,7 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout {
             $0.height.width.equalTo(150)
         }
     }
+    
     
     //SettingsViewDidLoad
     private func settingsView() {
@@ -138,8 +152,6 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     }
     
     
-    
-    
     //MARK: - Compositional Layout
     override func viewDidLayoutSubviews() {
         
@@ -152,11 +164,16 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout {
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
             heightDimension: .absolute(180))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                       subitem: item,
+                                                       count: 2)
         group.interItemSpacing = .fixed(spacing)
         
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = .init(top: spacing, leading: spacing, bottom: spacing, trailing: spacing)
+        section.contentInsets = .init(top: spacing,
+                                      leading: spacing,
+                                      bottom: spacing,
+                                      trailing: spacing)
         section.interGroupSpacing = spacing
         
         let layout = UICollectionViewCompositionalLayout(section: section)
@@ -175,7 +192,9 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     }
     
     
-    internal func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    internal func collectionView(_ collectionView: UICollectionView,
+                                 willDisplay cell: UICollectionViewCell,
+                                 forItemAt indexPath: IndexPath) {
         
         if indexPath.row == (presenter?.arrayPhotoData.count ?? 1) - 1 {
             guard let totalItems = presenter?.totalItems,
@@ -189,8 +208,9 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     
     private var myRefreshControl: UIRefreshControl {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
-        
+        refreshControl.addTarget(self,
+                                 action: #selector(refresh(sender:)),
+                                 for: .valueChanged)
         return refreshControl
     }
     
@@ -209,9 +229,11 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout {
         
         switch custom.selectedIndex {
         case 0:
-            presenter?.getPhoto(isNew: true, for: nil)
+            presenter?.getPhoto(isNew: true,
+                                for: nil)
         case 1:
-            presenter?.getPhoto(isNew: false, for: nil)
+            presenter?.getPhoto(isNew: false,
+                                for: nil)
         default:
             return
         }
@@ -227,9 +249,10 @@ extension MainViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar,
+                   textDidChange searchText: String) {
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
             self.presenter?.arrayPhotoData = []
             self.presenter?.currentPage = 1
             switch self.custom.selectedIndex {
@@ -240,40 +263,46 @@ extension MainViewController: UISearchBarDelegate {
             default:
                 return
             }
-        })
+        }
         collectionView.reloadData()
     }
 }
 
 
-extension MainViewController: MainView {
-    
-}
+extension MainViewController: MainView { }
 
 
 extension MainViewController : UICollectionViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
         return presenter?.arrayPhotoData.count ?? 0
     }
     
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.string.scenes.idCellsPhoto(), for: indexPath) as? MainPhotoCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.string.scenes.idCellsPhoto(),
+                                                         for: indexPath) as? MainPhotoCell {
             
-            guard let photo = presenter?.arrayPhotoData[indexPath.row].image else { return UICollectionViewCell() }
+            // TODO:  гард леты к такому виду
+            guard let photo = presenter?.arrayPhotoData[indexPath.row].image else {
+                return UICollectionViewCell()
+            }
             cell.setupCell(stringImage: photo.name)
             cell.arrayDataForCell = presenter?.arrayPhotoData[indexPath.row]
-            return cell
-            
+            return cell            
         } else {
             return UICollectionViewCell()
         }
     }
+}
+
+extension MainViewController: UICollectionViewDelegate {
     
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
         
         guard let photoData = collectionView.cellForItem(at: indexPath) as? MainPhotoCell else {
             return
@@ -281,14 +310,10 @@ extension MainViewController : UICollectionViewDataSource {
         guard let photo = photoData.imageView.image else { return }
         guard let photoObject = presenter?.arrayPhotoData[indexPath.row].name else { return }
         let description = presenter?.arrayPhotoData[indexPath.row].description
-        presenter?.openDetailScene(photoName: photoObject, photo: photo, description: description)
+        presenter?.openDetailScene(photoName: photoObject,
+                                   photo: photo,
+                                   description: description)
     }
-    
-    
-}
-
-extension MainViewController: UICollectionViewDelegate {
-    
 }
 
 

@@ -31,7 +31,8 @@ class AddPhotoPresenterImp: AddPhotoPresenter {
     
     
     
-    func addDataButtonPressed(_ image: UIImage, _ photo: PhotoPostEntity) {
+    func addDataButtonPressed(_ image: UIImage,
+                              _ photo: PhotoPostEntity) {
         guard let data = image.jpegData(compressionQuality: 0.1) else {
             return
         }
@@ -57,11 +58,13 @@ class AddPhotoPresenterImp: AddPhotoPresenter {
                 .subscribe(onSuccess: {[weak self] photoEntity in
                     HUD.flash(.success, delay: 0.3)
                     self?.router.clearNavStack()
-                    self?.router.openSomeScene(photoString: photoEntity.name!, photo: image , description: nil)
+                    self?.router.openSomeScene(photoString: photoEntity.name!,
+                                               photo: image ,
+                                               description: nil)
                     self?.view?.stopTimer()
                 }, onFailure: { error in
                     self.view?.stopTimer()
-                    self.view?.errorAlert(R.string.scenes.someThingWrong(), message: R.string.scenes.recomendationInternet())
+                    self.view?.errorAlert(R.string.scenes.someThingWrong(), message: error.localizedDescription)
 #if DEBUG
                     print("@@@@ error:\(error)")
 #endif

@@ -34,14 +34,19 @@ class AuthorizationSceneViewController: UIViewController {
         textFieldPassword.delegate = self
         configureButtons()
         errorLabel(hide: true)
+        settingsKeyboard()
     }
     
     // MARK: - Configure Views
     func configureButtons() {
         
         buttonAuth.layer.cornerRadius = 5
-        buttonAuth.addTarget(self, action: #selector(click(button:)), for: .touchUpInside)
-        buttonRegister.addTarget(self, action: #selector(click(button:)), for: .touchUpInside)
+        buttonAuth.addTarget(self,
+                             action: #selector(click(button:)),
+                             for: .touchUpInside)
+        buttonRegister.addTarget(self,
+                                 action: #selector(click(button:)),
+                                 for: .touchUpInside)
         
     }
     
@@ -57,7 +62,8 @@ class AuthorizationSceneViewController: UIViewController {
         
         switch sender {
         case buttonAuth:
-            presenter?.loginUser(userName: clearText(textField: textFieldEmail), password: clearText(textField: textFieldPassword))
+            presenter?.loginUser(userName: clearText(textField: textFieldEmail),
+                                 password: clearText(textField: textFieldPassword))
         case buttonRegister:
             presenter?.regButtonPressed()
         default:
@@ -68,7 +74,7 @@ class AuthorizationSceneViewController: UIViewController {
     
     func clearText(textField: UITextField) -> String {
         
-        return textField.text?.trimmingCharacters(in: .whitespaces) ?? ""
+        textField.text?.trimmingCharacters(in: .whitespaces) ?? ""
         
     }
     
@@ -77,36 +83,11 @@ class AuthorizationSceneViewController: UIViewController {
         
         textFieldEmail.resignFirstResponder()
         textFieldPassword.resignFirstResponder()
-        
     }
-    
-    
 }
 // MARK: - Extensions
 
-extension AuthorizationSceneViewController: AuthorizationSceneView {
-    
-    
-    
-    
-}
-
-
-extension AuthorizationSceneViewController: UITextFieldDelegate {
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        switch textField {
-        case textFieldEmail:
-            textFieldPassword.becomeFirstResponder()
-        case textFieldPassword:
-            textField.resignFirstResponder()
-        default:
-            return true
-        }
-        return true
-    }
-    
-}
+extension AuthorizationSceneViewController: AuthorizationSceneView {}
 
 
 

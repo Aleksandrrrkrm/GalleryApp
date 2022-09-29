@@ -178,7 +178,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="398.55072463768118" y="175.44642857142856"/>
+            <point key="canvasLocation" x="161" y="49"/>
         </scene>
     </scenes>
     <resources>

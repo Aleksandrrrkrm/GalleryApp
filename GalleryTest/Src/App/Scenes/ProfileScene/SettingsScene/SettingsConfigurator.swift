@@ -23,6 +23,7 @@ enum SettingsConfigurator {
     static func open(navigationController: UINavigationController) {
         let view = SettingsViewController()
         Self.configure(view: view)
-        navigationController.pushViewController(view, animated: true)
+        navigationController.pushViewController(view,
+                                                animated: true)
     }
 }

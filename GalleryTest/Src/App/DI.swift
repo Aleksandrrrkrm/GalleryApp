@@ -90,6 +90,9 @@ class DI {
         self.container.register(UserUsecaseImp.init)
             .as(UserUsecase.self)
         
+        self.container.register(UserDefaultsUsecaseImp.init)
+            .as(UserDefaultsUsecase.self)
+        
         // settings
         
         self.container.register(ProfileSettings.init)

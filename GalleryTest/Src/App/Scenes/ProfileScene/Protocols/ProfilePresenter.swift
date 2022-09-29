@@ -13,8 +13,8 @@ import UIKit
 
 protocol ProfilePresenter {
     
-    func currentUserInfo()
-    func getPhoto(idUser: Int)
-    var arrayUserPhotoData: [PhotoData] { get set }
+    func getPhoto()
     func openSettings()
+    
+    var arrayUserPhotoData: [PhotoData] { get set }
 }

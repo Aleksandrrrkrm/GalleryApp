@@ -30,6 +30,5 @@ class WelcomeRouter: BaseRouter {
             return
         }
           AuthorizationSceneConfigurator.open(navigationController: navController)
-    }
-    
+    }    
 }

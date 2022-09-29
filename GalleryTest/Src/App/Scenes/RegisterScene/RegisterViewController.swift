@@ -25,6 +25,8 @@ class RegisterViewController: UIViewController {
     
     // MARK: - @IBOutlets
     // textField and buttons
+    // TODO: вид текст филда
+//    @IBOutlet weak var allTextFIelds: [UITextField]!
     @IBOutlet weak var textFieldUserName: UITextField!
     @IBOutlet weak var textFieldBirthday: UITextField!
     @IBOutlet weak var textFieldEmail: UITextField!
@@ -52,7 +54,7 @@ class RegisterViewController: UIViewController {
         
         configureButtons()
         configureTextFields()
-        
+        settingsKeyboard()
         
     }
     
@@ -149,8 +151,6 @@ class RegisterViewController: UIViewController {
         }
         errorLabel.text = result
         self.isTextFieldsValid = false
-        
-        
     }
 }
 

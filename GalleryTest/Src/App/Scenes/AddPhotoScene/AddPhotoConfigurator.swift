@@ -20,10 +20,12 @@ enum AddPhotoConfigurator {
         view.presenter = presenter
     }
 
-    static func open(navigationController: UINavigationController, image: UIImage) {
+    static func open(navigationController: UINavigationController,
+                     image: UIImage) {
         let view = AddPhotoViewController()
         view.imageView.image = image
         Self.configure(view: view)
-        navigationController.pushViewController(view, animated: true)
+        navigationController.pushViewController(view,
+                                                animated: true)
     }
 }

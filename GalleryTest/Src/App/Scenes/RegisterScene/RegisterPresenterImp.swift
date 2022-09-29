@@ -40,7 +40,8 @@ class RegisterPresenterImp: RegisterPresenter {
     
     func registerUser(data: RegistrationEntity) {
         registrationUsecase.signUp(user: data)
-            .andThen(loginUsecase.signUp(login: data.username, password: data.password))
+            .andThen(loginUsecase.signUp(login: data.username,
+                                         password: data.password))
             .observe(on: MainScheduler.instance)
             .subscribe { _ in
                 HUD.flash(.success, delay: 0.3)
@@ -53,9 +54,8 @@ class RegisterPresenterImp: RegisterPresenter {
     
     
     func authButtonPressed() {
+        
         router.openAuthScene()
-        
-        
     }
     
     

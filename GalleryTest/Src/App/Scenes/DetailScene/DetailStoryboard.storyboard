@@ -52,7 +52,7 @@
                                             <constraint firstAttribute="height" constant="321" id="qtd-vW-csn"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYu-kg-5gB">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYu-kg-5gB">
                                         <rect key="frame" x="0.0" y="317" width="414" height="81"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="81" id="4EW-X9-RUw"/>

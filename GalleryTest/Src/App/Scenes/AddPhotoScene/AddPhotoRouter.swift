@@ -18,11 +18,16 @@ class AddPhotoRouter: BaseRouter {
         self.view = view
     }
     
-    func openSomeScene(photoString: String, photo: UIImage, description: String?) {
+    func openSomeScene(photoString: String,
+                       photo: UIImage,
+                       description: String?) {
         guard let navController = self.view?.navigationController else {
             return
         }
-          DetailConfigurator.open(navigationController: navController, photoString: photoString, photo: photo, description: description)
+          DetailConfigurator.open(navigationController: navController,
+                                  photoString: photoString,
+                                  photo: photo,
+                                  description: description)
     }
     
     

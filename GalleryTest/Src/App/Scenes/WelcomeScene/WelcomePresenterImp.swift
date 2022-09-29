@@ -31,8 +31,4 @@ class WelcomePresenterImp: WelcomePresenter {
     func authButtonPressed() {
         router.openAuthorizationScene()
     }
-    
-    
 }
-
-

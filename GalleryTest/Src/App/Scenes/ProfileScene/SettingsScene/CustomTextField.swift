@@ -20,8 +20,17 @@ enum Images {
 class CustomTextField: UITextField {
     
     
-    private var textfield = UITextField()
-    
+    private var textField = UITextField()
+    private var insetX: CGFloat = 6 {
+       didSet {
+         layoutIfNeeded()
+       }
+    }
+    private var insetY: CGFloat = 6 {
+       didSet {
+         layoutIfNeeded()
+       }
+    }
     
     
     public override init(frame: CGRect) {
@@ -34,47 +43,80 @@ class CustomTextField: UITextField {
         configureTextField()
     }
     
-    
+
+    // placeholder position
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.insetBy(dx: insetX , dy: insetY)
+    }
+
+    // text position
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.insetBy(dx: insetX , dy: insetY)
+    }
     
     private func configureTextField() {
         
         isSecureTextEntry = true
-        layer.cornerRadius = 5
-        layer.borderColor = CGColor(red: 40/255, green: 40/255, blue: 40/255, alpha: 1)
-        layer.borderWidth = 0.5
-        
+        layer.cornerRadius = 4
+        layer.borderColor = .init(red: 196/255, green: 196/255, blue: 196/255, alpha: 1)
+        layer.borderWidth = 1
         backgroundColor = .white
         
-        layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0)
         
     }
     
+
+    
     func configureView(for status: Images) {
-        
-        let textFieldImageView = UIImageView(frame: CGRect(x: 8.0, y: 12.0, width: 20.0, height: 20.0))
+
+        let textFieldButton = UIButton(type: .system)
         
         switch status {
         case .password:
-            textFieldImageView.image = R.image.eye()
+            textFieldButton.setImage(R.image.eye(), for: .normal)
         case .name:
-            textFieldImageView.image = R.image.name()
+            textFieldButton.setImage(R.image.name(), for: .normal)
+            textFieldButton.isUserInteractionEnabled = false
         case .birthday:
-            textFieldImageView.image = R.image.calendar()
+            textFieldButton.setImage(R.image.calendar(), for: .normal)
+            textFieldButton.isUserInteractionEnabled = false
         case .email:
-            textFieldImageView.image = R.image.email()
-            
+            textFieldButton.setImage(R.image.email(), for: .normal)
+            textFieldButton.isUserInteractionEnabled = false
+        }
+
+        textFieldButton.contentMode = .scaleAspectFill
+        textFieldButton.tintColor = .init(red: 196/255, green: 196/255, blue: 196/255, alpha: 1)
+        textFieldButton.backgroundColor = .clear
+        textFieldButton.snp.makeConstraints { make in
+            make.width.equalTo(30)
         }
         
-        textFieldImageView.contentMode = .scaleAspectFill
-        textFieldImageView.tintColor = .gray
-        textFieldImageView.backgroundColor = .clear
-        let textFieldView = UIView(frame: CGRect(x: 0, y: 0, width: 38, height: 40))
-        textFieldView.addSubview(textFieldImageView)
-        textFieldView.backgroundColor = .clear
-        rightViewMode = UITextField.ViewMode.always
-        rightView = textFieldView
+        textFieldButton.addTarget(self, action: #selector(showPassword), for: .touchUpInside)
         
+        
+        rightViewMode = UITextField.ViewMode.always
+        rightView = textFieldButton
+
     }
     
-    
+    @objc private func showPassword() {
+        _ = Timer.scheduledTimer(timeInterval: 1.0,
+                                         target: self,
+                                         selector: #selector(hidePassword),
+                                         userInfo: nil,
+                                         repeats: false)
+            self.isSecureTextEntry = false
+        
+
+    }
+
+    @objc private func hidePassword() {
+        
+        self.isSecureTextEntry = true
+        
+    }
+
 }
+    
+

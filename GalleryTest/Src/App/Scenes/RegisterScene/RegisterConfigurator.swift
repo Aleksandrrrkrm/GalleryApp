@@ -59,10 +59,8 @@ enum RegisterConfigurator {
         }
         Self.configure(view: view)
             
-            navigationController.popViewController(animated: true)
-          
+            navigationController.popViewController(animated: true)          
         }
-        
     }
     
     

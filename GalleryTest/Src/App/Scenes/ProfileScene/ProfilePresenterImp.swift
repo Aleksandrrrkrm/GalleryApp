@@ -20,8 +20,10 @@ class ProfilePresenterImp: ProfilePresenter {
     private var view: ProfileView?
     private let router: ProfileRouter
     private let userUsecase: UserUsecase
-    private let disposeBag = DisposeBag()
     private let photoUsecase: PhotoUsecase
+    private let disposeBag = DisposeBag()
+    private var currentUserId = UserDefaults.standard.integer(forKey: "userId")
+    private var userName = UserDefaults.standard.string(forKey: "userName") ?? "User Name"
     
     var arrayUserPhotoData: [PhotoData] = []
     
@@ -35,22 +37,11 @@ class ProfilePresenterImp: ProfilePresenter {
         self.photoUsecase = photoUsecase
     }
     
-    func currentUserInfo() {
-        userUsecase.getCurrentUser()
-            .subscribe(
-                onSuccess: { user in
-                    DispatchQueue.main.async {
-                        self.view?.userNameLabel.text = user.username
-                    }
-                }, onFailure: {_ in
-                })
-            .disposed(by: disposeBag)
-    }
     
-    
-    func getPhoto(idUser: Int) {
-        
-        let idString = String(idUser)
+    func getPhoto() {
+        print(currentUserId)
+        self.view?.userNameLabel.text = userName
+        let idString = String(currentUserId)
         photoUsecase.getUserPhoto(new: nil, popular: nil, page: 1, name: nil, id: idString)
             .observe(on: MainScheduler.instance)
             .subscribe(

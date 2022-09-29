@@ -56,9 +56,11 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         SettingsConfigurator.configure(view: self)
         configureall()
         presenter?.currentUserInfo()
+        settingsKeyboard()
+        
     }
     
-    
+
     //settingsViewDidLoad
     private func configureall() {
         
@@ -82,12 +84,12 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     // NavigationTitle
     private func configureNavTitle() {
-        
+
         let rightButtonItem = UIBarButtonItem.init(title: R.string.scenes.save(),
                                                    style: .done,
                                                    target: self,
                                                    action: #selector(saveButtonPressed))
-        rightButtonItem.tintColor = .purple
+        rightButtonItem.tintColor = R.color.appPink()
         self.navigationItem.rightBarButtonItem = rightButtonItem
     }
     
@@ -129,7 +131,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         userNameLabel.text = R.string.scenes.personalData()
         contentView.addSubview(userNameLabel)
         userNameLabel.snp.makeConstraints { make in
-            make.width.equalTo(343)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().inset(16)
             make.height.equalTo(20)
             make.centerX.equalTo(scrollView)
             make.top.equalTo(imageView.snp.bottom).offset(18)
@@ -144,7 +147,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         nameTextField.isSecureTextEntry = false
         contentView.addSubview(nameTextField)
         nameTextField.snp.makeConstraints { make in
-            make.width.equalTo(343)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().inset(16)
             make.height.equalTo(35)
             make.centerX.equalTo(scrollView)
             make.top.equalTo(userNameLabel.snp.bottom).offset(5)
@@ -159,7 +163,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         birthdayTextField.isSecureTextEntry = false
         contentView.addSubview(birthdayTextField)
         birthdayTextField.snp.makeConstraints { make in
-            make.width.equalTo(343)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().inset(16)
             make.height.equalTo(35)
             make.centerX.equalTo(scrollView)
             make.top.equalTo(nameTextField.snp.bottom).offset(20)
@@ -173,7 +178,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         emailLabel.text = R.string.scenes.emailAdress()
         contentView.addSubview(emailLabel)
         emailLabel.snp.makeConstraints { make in
-            make.width.equalTo(343)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().inset(16)
             make.height.equalTo(20)
             make.centerX.equalTo(scrollView)
             make.top.equalTo(birthdayTextField.snp.bottom).offset(32)
@@ -188,7 +194,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         emailTextField.isSecureTextEntry = false
         contentView.addSubview(emailTextField)
         emailTextField.snp.makeConstraints { make in
-            make.width.equalTo(343)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().inset(16)
             make.height.equalTo(35)
             make.centerX.equalTo(scrollView)
             make.top.equalTo(emailLabel.snp.bottom).offset(5)
@@ -202,7 +209,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         passwordLabel.text = R.string.scenes.password()
         contentView.addSubview(passwordLabel)
         passwordLabel.snp.makeConstraints { make in
-            make.width.equalTo(343)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().inset(16)
             make.height.equalTo(20)
             make.centerX.equalTo(scrollView)
             make.top.equalTo(emailTextField.snp.bottom).offset(32)
@@ -217,7 +225,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.configureView(for: Images.password)
         contentView.addSubview(passwordTextField)
         passwordTextField.snp.makeConstraints { make in
-            make.width.equalTo(343)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().inset(16)
             make.height.equalTo(35)
             make.centerX.equalTo(scrollView)
             make.top.equalTo(passwordLabel.snp.bottom).offset(5)
@@ -232,7 +241,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         newPasswordTextField.configureView(for: Images.password)
         contentView.addSubview(newPasswordTextField)
         newPasswordTextField.snp.makeConstraints { make in
-            make.width.equalTo(343)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().inset(16)
             make.height.equalTo(35)
             make.centerX.equalTo(scrollView)
             make.top.equalTo(passwordTextField.snp.bottom).offset(20)
@@ -247,7 +257,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         confirmPasswordTextField.configureView(for: Images.password)
         contentView.addSubview(confirmPasswordTextField)
         confirmPasswordTextField.snp.makeConstraints { make in
-            make.width.equalTo(343)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().inset(16)
             make.height.equalTo(35)
             make.centerX.equalTo(scrollView)
             make.top.equalTo(newPasswordTextField.snp.bottom).offset(20)
@@ -258,16 +269,19 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     //configureDeleteLabel
     private func configureDeleteLabel() {
         
-        deleteLabel.font = UIFont(name: deleteLabel.font.fontName, size: 15)
+        deleteLabel.font = UIFont(name: deleteLabel.font.fontName,
+                                  size: 15)
         deleteLabel.text = R.string.scenes.youCan()
         contentView.addSubview(deleteLabel)
         deleteLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(20)
             make.top.equalTo(confirmPasswordTextField.snp.bottom).offset(20)
         }
-        deleteButton.setTitle(R.string.scenes.deleteAcc(), for: .normal)
-        deleteButton.tintColor = .red
-        deleteButton.titleLabel?.font = UIFont(name: deleteLabel.font.fontName, size: 15)
+        deleteButton.setTitle(R.string.scenes.deleteAcc(),
+                              for: .normal)
+        deleteButton.tintColor = R.color.appPink()
+        deleteButton.titleLabel?.font = UIFont(name: deleteLabel.font.fontName,
+                                               size: 15)
         contentView.addSubview(deleteButton)
         deleteButton.snp.makeConstraints { make in
             make.left.equalTo(deleteLabel.snp.right)
@@ -279,10 +293,13 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     //signOutButton
     private func configureSignOutButton() {
         
-        signOutButton.setTitle(R.string.scenes.signOut(), for: .normal)
-        signOutButton.tintColor = .red
-        signOutButton.titleLabel?.font = UIFont(name: deleteLabel.font.fontName, size: 15)
-        signOutButton.addTarget(self, action: #selector(signOut), for: .touchUpInside)
+        signOutButton.setTitle(R.string.scenes.signOut(),
+                               for: .normal)
+        signOutButton.tintColor = R.color.appPink()
+        signOutButton.titleLabel?.font = UIFont(name: deleteLabel.font.fontName,
+                                                size: 15)
+        signOutButton.addTarget(self, action: #selector(signOut),
+                                for: .touchUpInside)
         contentView.addSubview(signOutButton)
         signOutButton.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(20)
@@ -290,20 +307,26 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             make.bottom.equalToSuperview().inset(120)
         }
     }
-
     
     
     //MARK: - USAGE
     
     @objc func signOut() {
         
-        let alert  = UIAlertController(title: R.string.scenes.signOut(), message: R.string.scenes.areYouShure(), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: R.string.scenes.signOut(), style: .default, handler: { _ in
+        let alert  = UIAlertController(title: R.string.scenes.signOut(),
+                                       message: R.string.scenes.areYouShure(),
+                                       preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: R.string.scenes.signOut(),
+                                      style: .default,
+                                      handler: { _ in
             ProfileSettings().clearUserData()
             self.presenter?.openStartScreen()
         }))
-        alert.addAction(UIAlertAction(title: R.string.scenes.cancel(), style: .cancel, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        alert.addAction(UIAlertAction(title: R.string.scenes.cancel(),
+                                      style: .cancel,
+                                      handler: nil))
+        self.present(alert, animated: true,
+                     completion: nil)
         
     }
     

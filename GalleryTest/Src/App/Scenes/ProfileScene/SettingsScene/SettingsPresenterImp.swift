@@ -44,7 +44,8 @@ class SettingsPresenterImp: SettingsPresenter {
     }
     
     func openStartScreen() {
-        
+        let domain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: domain)
         (UIApplication.shared.delegate as? AppDelegate)?.openStartScreen(window: self.window)
     }
 }

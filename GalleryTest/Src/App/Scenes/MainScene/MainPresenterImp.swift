@@ -11,15 +11,14 @@
 import Foundation
 import RxSwift
 import RxNetworkApiClient
+import CoreMedia
 
 class MainPresenterImp: MainPresenter {
-    
-    
-    let x = Header.acceptJson
     
     private var view: MainView?
     private let router: MainRouter
     private let photoUsecase: PhotoUsecase
+    
     // Helpers
     var currentPage = 1
     var totalItems: Int?
@@ -46,9 +45,12 @@ class MainPresenterImp: MainPresenter {
         let new = isNew ?? false ? R.string.scenes.false() : R.string.scenes.true()
         let popular = isNew ?? true ? R.string.scenes.true() : R.string.scenes.false()
         
-        photoUsecase.getPhoto(new: new, popular: popular, page: currentPage, name: search, id: nil)
+        photoUsecase.getPhoto(new: new,
+                              popular: popular,
+                              page: currentPage,
+                              name: search,
+                              id: nil)
             .observe(on: MainScheduler.instance)
-        
             .subscribe(
                 onSuccess: {
                     self.view?.stopTimer()
@@ -61,15 +63,21 @@ class MainPresenterImp: MainPresenter {
                     }
                     self.currentPage += 1
                     self.view?.collectionView.reloadData()
-                }, onFailure: {
-                    print($0)
+                }, onFailure: { error in
+                    
+                    // TODO:  модалка с локалйзед дескрипшен
+                    print(error.localizedDescription)
                 })
             .disposed(by: disposeBag)
     }
     
     
-    func openDetailScene(photoName: String, photo: UIImage, description: String?) {
-        router.openSomeScene(photoName: photoName, photo: photo, description: description)
+    func openDetailScene(photoName: String,
+                         photo: UIImage,
+                         description: String?) {
+        router.openSomeScene(photoName: photoName,
+                             photo: photo,
+                             description: description)
         
     }
     

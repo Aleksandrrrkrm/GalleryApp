@@ -21,6 +21,7 @@ protocol MainPhotoCell: UICollectionViewCell {
 
 class MainPhotoCellImp: UICollectionViewCell, MainPhotoCell {
     
+
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -31,16 +32,14 @@ class MainPhotoCellImp: UICollectionViewCell, MainPhotoCell {
             else {
                 return
             }
-        
-
-        
-           
-        
             self.imageView.kf.indicatorType = .activity
             self.imageView.kf.setImage(with: url)
-                
-            
             self.layer.cornerRadius = 10
-        
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        arrayDataForCell = nil
+        // TODO: стопать загрузку фотки через кингфишер
     }
 }

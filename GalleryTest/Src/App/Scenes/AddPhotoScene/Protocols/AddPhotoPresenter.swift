@@ -13,6 +13,6 @@ import UIKit
 
 protocol AddPhotoPresenter {
     
-//    func addDataButtonPressed(_ data: Data, _ photo: PhotoPostEntity)
-    func addDataButtonPressed(_ image: UIImage, _ photo: PhotoPostEntity)
+    func addDataButtonPressed(_ image: UIImage,
+                              _ photo: PhotoPostEntity)
 }
