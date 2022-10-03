@@ -15,14 +15,16 @@ enum DetailConfigurator {
     static func configure(view: DetailViewController) {
         let router = DetailRouter(view)
         let presenter = DetailPresenterImp(view,
-                                           router)
+                                           router,
+                                           DI.resolve())
         view.presenter = presenter
     }
 
     static func open(navigationController: UINavigationController,
                      photoString: String,
                      photo: UIImage,
-                     description: String?) {
+                     description: String?,
+                     photoUserName: String?) {
         guard let view = R.storyboard.detailStoryboard.instantiateInitialViewController() else {
             return
         }
@@ -31,6 +33,7 @@ enum DetailConfigurator {
         view.image = photo
         view.name = photoString
         view.descriptionPhoto = description
+        view.userName = photoUserName
         navigationController.pushViewController(view,
                                                 animated: true)
     }

@@ -20,6 +20,7 @@ class MainPresenterImp: MainPresenter {
     private let photoUsecase: PhotoUsecase
     
     // Helpers
+    var photoUserName: String?
     var currentPage = 1
     var totalItems: Int?
     private var isPopular: Bool?
@@ -71,14 +72,22 @@ class MainPresenterImp: MainPresenter {
             .disposed(by: disposeBag)
     }
     
+
     
     func openDetailScene(photoName: String,
                          photo: UIImage,
-                         description: String?) {
+                         description: String?,
+                         photoUserName: String?) {
         router.openSomeScene(photoName: photoName,
                              photo: photo,
-                             description: description)
+                             description: description,
+                             photoUserName: photoUserName)
         
+    }
+    
+    func resetCollectionData() {
+        arrayPhotoData = []
+        currentPage = 1
     }
     
 }

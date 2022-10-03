@@ -13,7 +13,7 @@ import UIKit
 
 protocol MainPresenter {
     
-    func openDetailScene(photoName: String, photo: UIImage, description: String?)
+    func openDetailScene(photoName: String, photo: UIImage, description: String?, photoUserName: String?)
    
     func getPhoto(isNew: Bool?, for search: String?)
     
@@ -23,5 +23,5 @@ protocol MainPresenter {
     
     var totalItems: Int? { get set }
     
-    
+    func resetCollectionData()
 }

@@ -262,10 +262,10 @@ struct R: Rswift.Validatable {
     static let eye = Rswift.ImageResource(bundle: R.hostingBundle, name: "eye")
     /// Image `name`.
     static let name = Rswift.ImageResource(bundle: R.hostingBundle, name: "name")
+    /// Image `photo`.
+    static let photo = Rswift.ImageResource(bundle: R.hostingBundle, name: "photo")
     /// Image `placeholder`.
     static let placeholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder")
-    /// Image `userPhoto`.
-    static let userPhoto = Rswift.ImageResource(bundle: R.hostingBundle, name: "userPhoto")
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "Calendar", bundle: ..., traitCollection: ...)`
@@ -338,16 +338,16 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "placeholder", bundle: ..., traitCollection: ...)`
-    static func placeholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.placeholder, compatibleWith: traitCollection)
+    /// `UIImage(named: "photo", bundle: ..., traitCollection: ...)`
+    static func photo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.photo, compatibleWith: traitCollection)
     }
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "userPhoto", bundle: ..., traitCollection: ...)`
-    static func userPhoto(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.userPhoto, compatibleWith: traitCollection)
+    /// `UIImage(named: "placeholder", bundle: ..., traitCollection: ...)`
+    static func placeholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.placeholder, compatibleWith: traitCollection)
     }
     #endif
 
@@ -1680,6 +1680,7 @@ struct _R: Rswift.Validatable {
       let name = "DetailStoryboard"
 
       static func validate() throws {
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "eye.fill") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'eye.fill' is used in storyboard 'DetailStoryboard', but couldn't be loaded.") } }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
@@ -1783,7 +1784,7 @@ struct _R: Rswift.Validatable {
       let name = "ProfileStoryboard"
 
       static func validate() throws {
-        if UIKit.UIImage(named: "userPhoto", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'userPhoto' is used in storyboard 'ProfileStoryboard', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "photo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'photo' is used in storyboard 'ProfileStoryboard', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

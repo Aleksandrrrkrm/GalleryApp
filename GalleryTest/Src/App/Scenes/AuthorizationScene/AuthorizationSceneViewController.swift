@@ -87,7 +87,7 @@ class AuthorizationSceneViewController: UIViewController {
 }
 // MARK: - Extensions
 
-extension AuthorizationSceneViewController: AuthorizationSceneView {}
+extension AuthorizationSceneViewController: AuthorizationSceneView { }
 
 
 

@@ -13,6 +13,7 @@ protocol PhotoGateway {
     
     
     func getPhoto(new: String?, popular: String?, page: Int, name: String?, id: String?) -> Single<PhotoModel>
+    func getUser(_ id: String) -> Single<CurrentUser>
     
     
 }
@@ -24,5 +25,9 @@ final class PhotoGatewayImp: ApiBaseGateway, PhotoGateway {
         return apiClient.execute(request: request)
     }
     
+    func getUser(_ id: String) -> Single<CurrentUser> {
+        let request:ExtendedApiRequest<CurrentUser> = .getUserInfo(id)
+        return apiClient.execute(request: request)
+    }
     
 }

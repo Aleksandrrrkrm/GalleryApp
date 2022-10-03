@@ -13,7 +13,6 @@ import RxSwift
 
 extension ExtendedApiRequest {
 
-    // Важно поменять структуру запросов в соответствии с Api проекта
     
     // MARK: /oauth
     
@@ -102,6 +101,12 @@ extension ExtendedApiRequest {
 
     static func getAccountRequest() -> ExtendedApiRequest {
         extendedRequest(path: "/api/users/current",
+                        method: .get,
+                        headers: [Header.contentJson])
+    }
+    
+    static func getUserInfo( _ id: String) -> ExtendedApiRequest {
+        extendedRequest(path: "/api/users/\(id)",
                         method: .get,
                         headers: [Header.contentJson])
     }

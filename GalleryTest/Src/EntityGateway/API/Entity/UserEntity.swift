@@ -169,3 +169,10 @@ class UserEditingEntity: JsonBodyConvertible {
         
     }
 }
+
+struct User: JsonBodyConvertible {
+    let id: Int
+    let email: String
+    let username: String
+}
+

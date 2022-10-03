@@ -137,6 +137,7 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     //SettingsViewDidLoad
     private func settingsView() {
         
+        navigationItem.backButtonTitle = R.string.scenes.emptyLine()
         collectionView.delegate = self
         collectionView.dataSource = self
         searchBar.delegate = self
@@ -160,7 +161,6 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout {
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
             heightDimension: .absolute(180))
@@ -168,14 +168,12 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout {
                                                        subitem: item,
                                                        count: 2)
         group.interItemSpacing = .fixed(spacing)
-        
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = .init(top: spacing,
                                       leading: spacing,
                                       bottom: spacing,
                                       trailing: spacing)
         section.interGroupSpacing = spacing
-        
         let layout = UICollectionViewCompositionalLayout(section: section)
         collectionView.collectionViewLayout = layout
         collectionView.collectionViewLayout.invalidateLayout()
@@ -183,19 +181,16 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     
     
     // MARK: - USAGE
-    
     @objc func segmentValueChanged(_ sender: AnyObject){
-        presenter?.arrayPhotoData = []
-//        collectionView.reloadData()
-        presenter?.currentPage = 1
+        presenter?.resetCollectionData()
+        collectionView.reloadData()
         trueUrlForPhoto()
     }
     
     
-    internal func collectionView(_ collectionView: UICollectionView,
-                                 willDisplay cell: UICollectionViewCell,
-                                 forItemAt indexPath: IndexPath) {
-        
+    func collectionView(_ collectionView: UICollectionView,
+                        willDisplay cell: UICollectionViewCell,
+                        forItemAt indexPath: IndexPath) {
         if indexPath.row == (presenter?.arrayPhotoData.count ?? 1) - 1 {
             guard let totalItems = presenter?.totalItems,
                   (presenter?.currentPage)! <= totalItems
@@ -226,7 +221,6 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     // MARK: - Helpers
     
     private func trueUrlForPhoto() {
-        
         switch custom.selectedIndex {
         case 0:
             presenter?.getPhoto(isNew: true,
@@ -238,20 +232,20 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout {
             return
         }
     }
+    
 }
 
 
 // MARK: - Extension
 
 extension MainViewController: UISearchBarDelegate {
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
     
+    
     func searchBar(_ searchBar: UISearchBar,
                    textDidChange searchText: String) {
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
             self.presenter?.arrayPhotoData = []
             self.presenter?.currentPage = 1
@@ -273,7 +267,6 @@ extension MainViewController: MainView { }
 
 
 extension MainViewController : UICollectionViewDataSource {
-    
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         return presenter?.arrayPhotoData.count ?? 0
@@ -285,8 +278,6 @@ extension MainViewController : UICollectionViewDataSource {
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.string.scenes.idCellsPhoto(),
                                                          for: indexPath) as? MainPhotoCell {
-            
-            // TODO:  гард леты к такому виду
             guard let photo = presenter?.arrayPhotoData[indexPath.row].image else {
                 return UICollectionViewCell()
             }
@@ -310,9 +301,19 @@ extension MainViewController: UICollectionViewDelegate {
         guard let photo = photoData.imageView.image else { return }
         guard let photoObject = presenter?.arrayPhotoData[indexPath.row].name else { return }
         let description = presenter?.arrayPhotoData[indexPath.row].description
+        guard var userId = presenter?.arrayPhotoData[indexPath.row].user else {
+            return
+        }
+        for char in userId {
+            if !char.isNumber {
+                userId.removeFirst()
+            }
+        }
+        print(presenter?.arrayPhotoData[indexPath.row].dateCreate)
         presenter?.openDetailScene(photoName: photoObject,
                                    photo: photo,
-                                   description: description)
+                                   description: description,
+                                   photoUserName: userId)
     }
 }
 

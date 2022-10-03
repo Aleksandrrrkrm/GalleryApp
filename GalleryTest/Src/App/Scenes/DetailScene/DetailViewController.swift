@@ -12,19 +12,21 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    //MARK: - Outlets
     @IBOutlet weak var imageScroll: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     
+    //MARK: - Properties
     var image: UIImage?
     var name: String?
     var descriptionPhoto: String?
     internal var presenter: DetailPresenter?
-    // TODO: Что это?
-    let wight: CGFloat = 414
-    let hight: CGFloat = 272
+    var userName: String?
     
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,13 +37,21 @@ class DetailViewController: UIViewController {
         imageScroll.delegate = self
         imageScroll.minimumZoomScale = 1.0
         imageScroll.maximumZoomScale = 10.0
+        getUserName()
     }
-}
-
-
-extension DetailViewController: DetailView {
     
+    func getUserName() {
+        guard let id = userName else {
+            return
+        }
+        presenter?.getUserName(id)
+    }
+
 }
+
+
+//MARK: - Extensions
+extension DetailViewController: DetailView { }
 
 extension DetailViewController: UIScrollViewDelegate {
     

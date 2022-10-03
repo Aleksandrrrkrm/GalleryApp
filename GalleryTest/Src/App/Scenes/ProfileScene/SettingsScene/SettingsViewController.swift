@@ -113,16 +113,18 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     // imageView
     private func configureImageView() {
-        imageView.layer.cornerRadius = 60
+        imageView.layer.borderColor = .init(red: 196/255, green: 196/255, blue: 196/255, alpha: 1)
+        imageView.layer.borderWidth = 1
+        imageView.layer.cornerRadius = 50
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
-        imageView.image = R.image.userPhoto()
+        imageView.image = R.image.photo()
         contentView.addSubview(imageView)
         imageView.snp.makeConstraints { make in
             make.centerX.equalTo(scrollView)
-            make.top.equalToSuperview().inset(20)
-            make.width.equalTo(120)
-            make.height.equalTo(120)
+            make.top.equalToSuperview().inset(10)
+            make.width.equalTo(100)
+            make.height.equalTo(100)
         }
     }
     
@@ -132,10 +134,10 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         contentView.addSubview(userNameLabel)
         userNameLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(20)
+            make.width.equalTo(87)
+            make.height.equalTo(16)
             make.centerX.equalTo(scrollView)
-            make.top.equalTo(imageView.snp.bottom).offset(18)
+            make.top.equalTo(imageView.snp.bottom).offset(44)
         }
     }
     
@@ -151,7 +153,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             make.trailing.equalToSuperview().inset(16)
             make.height.equalTo(35)
             make.centerX.equalTo(scrollView)
-            make.top.equalTo(userNameLabel.snp.bottom).offset(5)
+            make.top.equalTo(userNameLabel.snp.bottom).offset(20)
         }
     }
     
@@ -167,7 +169,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             make.trailing.equalToSuperview().inset(16)
             make.height.equalTo(35)
             make.centerX.equalTo(scrollView)
-            make.top.equalTo(nameTextField.snp.bottom).offset(20)
+            make.top.equalTo(nameTextField.snp.bottom).offset(29)
         }
     }
     
@@ -182,7 +184,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             make.trailing.equalToSuperview().inset(16)
             make.height.equalTo(20)
             make.centerX.equalTo(scrollView)
-            make.top.equalTo(birthdayTextField.snp.bottom).offset(32)
+            make.top.equalTo(birthdayTextField.snp.bottom).offset(39)
         }
     }
     
@@ -198,7 +200,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             make.trailing.equalToSuperview().inset(16)
             make.height.equalTo(35)
             make.centerX.equalTo(scrollView)
-            make.top.equalTo(emailLabel.snp.bottom).offset(5)
+            make.top.equalTo(emailLabel.snp.bottom).offset(20)
         }
     }
     
@@ -213,7 +215,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             make.trailing.equalToSuperview().inset(16)
             make.height.equalTo(20)
             make.centerX.equalTo(scrollView)
-            make.top.equalTo(emailTextField.snp.bottom).offset(32)
+            make.top.equalTo(emailTextField.snp.bottom).offset(39)
         }
     }
     
@@ -229,7 +231,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             make.trailing.equalToSuperview().inset(16)
             make.height.equalTo(35)
             make.centerX.equalTo(scrollView)
-            make.top.equalTo(passwordLabel.snp.bottom).offset(5)
+            make.top.equalTo(passwordLabel.snp.bottom).offset(20)
         }
     }
    
@@ -245,7 +247,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             make.trailing.equalToSuperview().inset(16)
             make.height.equalTo(35)
             make.centerX.equalTo(scrollView)
-            make.top.equalTo(passwordTextField.snp.bottom).offset(20)
+            make.top.equalTo(passwordTextField.snp.bottom).offset(29)
         }
     }
     
@@ -261,7 +263,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             make.trailing.equalToSuperview().inset(16)
             make.height.equalTo(35)
             make.centerX.equalTo(scrollView)
-            make.top.equalTo(newPasswordTextField.snp.bottom).offset(20)
+            make.top.equalTo(newPasswordTextField.snp.bottom).offset(29)
         }
     }
     
@@ -275,7 +277,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         contentView.addSubview(deleteLabel)
         deleteLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(20)
-            make.top.equalTo(confirmPasswordTextField.snp.bottom).offset(20)
+            make.top.equalTo(confirmPasswordTextField.snp.bottom).offset(39)
         }
         deleteButton.setTitle(R.string.scenes.deleteAcc(),
                               for: .normal)
@@ -285,7 +287,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         contentView.addSubview(deleteButton)
         deleteButton.snp.makeConstraints { make in
             make.left.equalTo(deleteLabel.snp.right)
-            make.top.equalTo(confirmPasswordTextField.snp.bottom).offset(14)
+            make.top.equalTo(confirmPasswordTextField.snp.bottom).offset(33)
         }
     }
     
@@ -303,7 +305,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         contentView.addSubview(signOutButton)
         signOutButton.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(20)
-            make.top.equalTo(deleteLabel.snp.bottom).offset(5)
+            make.top.equalTo(deleteLabel.snp.bottom).offset(20)
             make.bottom.equalToSuperview().inset(120)
         }
     }

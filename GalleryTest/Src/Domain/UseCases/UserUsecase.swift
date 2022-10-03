@@ -13,7 +13,6 @@ import RxSwift
 protocol UserUsecase {
     
     func getCurrentUser() -> Single<CurrentUser>
-    
 }
 
 final class UserUsecaseImp: UserUsecase {

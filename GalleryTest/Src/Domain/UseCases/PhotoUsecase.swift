@@ -13,6 +13,7 @@ protocol PhotoUsecase {
     
     func getPhoto(new: String?, popular: String?, page: Int, name: String?, id: String?) -> Single<PhotoModel>
     func getUserPhoto(new: String?, popular: String?, page: Int, name: String?, id: String?) -> Single<PhotoModel>
+    func getUserName(_ id: String) -> Single<CurrentUser>
 }
 
 final class PhotoUsecaseImp: PhotoUsecase {
@@ -29,6 +30,10 @@ final class PhotoUsecaseImp: PhotoUsecase {
     
     func getUserPhoto(new: String?, popular: String?, page: Int, name: String?, id: String?) -> Single<PhotoModel> {
         photoGateway.getPhoto(new: nil, popular: nil, page: page, name: name, id: id)
+    }
+    
+    func getUserName(_ id: String) -> Single<CurrentUser> {
+        photoGateway.getUser(id)
     }
     
 }

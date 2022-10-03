@@ -21,6 +21,7 @@ class CustomTextField: UITextField {
     
     
     private var textField = UITextField()
+    private let textFieldButton = UIButton(type: .system)
     private var insetX: CGFloat = 6 {
        didSet {
          layoutIfNeeded()
@@ -69,11 +70,10 @@ class CustomTextField: UITextField {
     
     func configureView(for status: Images) {
 
-        let textFieldButton = UIButton(type: .system)
-        
+            
         switch status {
         case .password:
-            textFieldButton.setImage(R.image.eye(), for: .normal)
+            textFieldButton.setImage(UIImage(named: "eye"), for: .normal)
         case .name:
             textFieldButton.setImage(R.image.name(), for: .normal)
             textFieldButton.isUserInteractionEnabled = false
@@ -100,6 +100,7 @@ class CustomTextField: UITextField {
 
     }
     
+    
     @objc private func showPassword() {
         _ = Timer.scheduledTimer(timeInterval: 1.0,
                                          target: self,
@@ -107,14 +108,12 @@ class CustomTextField: UITextField {
                                          userInfo: nil,
                                          repeats: false)
             self.isSecureTextEntry = false
-        
-
     }
 
+    
     @objc private func hidePassword() {
         
         self.isSecureTextEntry = true
-        
     }
 
 }

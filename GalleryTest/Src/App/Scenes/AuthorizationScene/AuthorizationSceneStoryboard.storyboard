@@ -48,20 +48,18 @@
                                                 </constraints>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yxj-Oc-Ijb">
-                                                <rect key="frame" x="35.5" y="182" width="343" height="36"/>
+                                                <rect key="frame" x="16" y="182" width="382" height="36"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="YiK-IH-fFT"/>
-                                                    <constraint firstAttribute="width" constant="343" id="siP-Uv-yQf"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z24-Vc-vCJ">
-                                                <rect key="frame" x="35.5" y="247" width="343" height="36"/>
+                                                <rect key="frame" x="16" y="247" width="382" height="36"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="343" id="1Vs-3T-Ggp"/>
                                                     <constraint firstAttribute="height" constant="36" id="J4T-66-AXJ"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -135,7 +133,9 @@
                                             <constraint firstItem="CXR-dH-4vw" firstAttribute="top" secondItem="z24-Vc-vCJ" secondAttribute="bottom" constant="70" id="e5y-HY-zXg"/>
                                             <constraint firstAttribute="height" constant="862" id="igZ-lp-JPG"/>
                                             <constraint firstItem="qB9-Kv-eoz" firstAttribute="centerX" secondItem="mep-5P-ftb" secondAttribute="centerX" id="mhm-Ky-Yuk"/>
+                                            <constraint firstItem="z24-Vc-vCJ" firstAttribute="leading" secondItem="mep-5P-ftb" secondAttribute="leading" constant="16" id="rfb-fL-3U5"/>
                                             <constraint firstItem="Yxj-Oc-Ijb" firstAttribute="top" secondItem="9d5-k3-rMZ" secondAttribute="bottom" constant="50" id="tDy-7U-XYW"/>
+                                            <constraint firstItem="Yxj-Oc-Ijb" firstAttribute="leading" secondItem="mep-5P-ftb" secondAttribute="leading" constant="16" id="ugg-Yc-xeD"/>
                                             <constraint firstItem="mN1-ra-6ZY" firstAttribute="centerX" secondItem="mep-5P-ftb" secondAttribute="centerX" id="uwd-q6-j6F"/>
                                         </constraints>
                                         <connections>

@@ -29,7 +29,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegateFlowLayou
         
         ProfileConfigurator.configure(view: self)
         configureNavTitle()
-        
+        configureImageView()
         presenter?.getPhoto()
         
         navigationItem.backButtonTitle = R.string.scenes.cancel()
@@ -66,6 +66,14 @@ class ProfileViewController: UIViewController, UICollectionViewDelegateFlowLayou
     }
     
     //MARK: - Scene
+    
+    private func configureImageView() {
+        
+        imageView.layer.borderColor = .init(red: 196/255, green: 196/255, blue: 196/255, alpha: 1)
+        imageView.layer.borderWidth = 1
+    }
+    
+    
     private func configureNavTitle() {
         
         let rightButtonItem = UIBarButtonItem.init(image: R.image.icon(),
@@ -85,9 +93,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegateFlowLayou
 
 
 //MARK: - EXTENSIONS
-extension ProfileViewController: ProfileView {
-    
-}
+extension ProfileViewController: ProfileView { }
 
 
 extension ProfileViewController : UICollectionViewDataSource {
@@ -116,6 +122,5 @@ extension ProfileViewController : UICollectionViewDataSource {
     }
 }
 
-extension ProfileViewController: UICollectionViewDelegate {
-    
-}
+
+extension ProfileViewController: UICollectionViewDelegate { }

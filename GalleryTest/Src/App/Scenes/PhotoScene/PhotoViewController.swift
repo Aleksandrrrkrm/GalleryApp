@@ -32,28 +32,19 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
-
         navigationItem.backButtonTitle = R.string.scenes.emptyLine()
         navigationController?.navigationBar.tintColor = .black
-        
         imageLibrary.delegate = self
-        
         imageLibrary.sourceType = .photoLibrary
         imageLibrary.allowsEditing = false
-        
         addActionsForSheetAlert()
-        
         PhotoConfigurator.configure(view: self)
-        
         image = R.image.placeholder()
         collectionView.delegate = self
         collectionView.dataSource = self
         imagePicker.delegate = self
         configureNavTitle()
-    
         getPhoto()
-    
     }
     
     
@@ -92,13 +83,11 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     // MARK: - USAGE
     
     func getPhoto() {
-        
         presenter?.getImages()
     }
     
    
     func cameraButton() {
-     
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
             imageLibrary.sourceType = .camera
             imageLibrary.allowsEditing = true

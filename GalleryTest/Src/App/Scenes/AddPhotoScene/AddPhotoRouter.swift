@@ -27,7 +27,8 @@ class AddPhotoRouter: BaseRouter {
           DetailConfigurator.open(navigationController: navController,
                                   photoString: photoString,
                                   photo: photo,
-                                  description: description)
+                                  description: description,
+                                  photoUserName: nil)
     }
     
     

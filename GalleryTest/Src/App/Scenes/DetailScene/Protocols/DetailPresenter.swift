@@ -11,6 +11,5 @@
 import Foundation
 
 protocol DetailPresenter {
-    
-    
+    func getUserName(_ id: String)
 }
