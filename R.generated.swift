@@ -240,7 +240,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 12 images.
+  /// This `R.image` struct is generated, and contains static references to 14 images.
   struct image {
     /// Image `Calendar`.
     static let calendar = Rswift.ImageResource(bundle: R.hostingBundle, name: "Calendar")
@@ -256,10 +256,14 @@ struct R: Rswift.Validatable {
     static let line1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Line-1")
     /// Image `Rectangle`.
     static let rectangle = Rswift.ImageResource(bundle: R.hostingBundle, name: "Rectangle")
+    /// Image `backImage`.
+    static let backImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "backImage")
     /// Image `email`.
     static let email = Rswift.ImageResource(bundle: R.hostingBundle, name: "email")
-    /// Image `eye`.
-    static let eye = Rswift.ImageResource(bundle: R.hostingBundle, name: "eye")
+    /// Image `eyeClose`.
+    static let eyeClose = Rswift.ImageResource(bundle: R.hostingBundle, name: "eyeClose")
+    /// Image `eyeOpen`.
+    static let eyeOpen = Rswift.ImageResource(bundle: R.hostingBundle, name: "eyeOpen")
     /// Image `name`.
     static let name = Rswift.ImageResource(bundle: R.hostingBundle, name: "name")
     /// Image `photo`.
@@ -317,6 +321,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "backImage", bundle: ..., traitCollection: ...)`
+    static func backImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.backImage, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "email", bundle: ..., traitCollection: ...)`
     static func email(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.email, compatibleWith: traitCollection)
@@ -324,9 +335,16 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "eye", bundle: ..., traitCollection: ...)`
-    static func eye(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.eye, compatibleWith: traitCollection)
+    /// `UIImage(named: "eyeClose", bundle: ..., traitCollection: ...)`
+    static func eyeClose(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eyeClose, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "eyeOpen", bundle: ..., traitCollection: ...)`
+    static func eyeOpen(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eyeOpen, compatibleWith: traitCollection)
     }
     #endif
 
@@ -920,18 +938,22 @@ struct R: Rswift.Validatable {
       static let add = Rswift.StringResource(key: "add", tableName: "Scenes", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Are you shure?
       static let areYouShure = Rswift.StringResource(key: "areYouShure", tableName: "Scenes", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Avenir-Black
-      static let avenirBlack = Rswift.StringResource(key: "avenirBlack", tableName: "Scenes", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Arial
+      static let arial = Rswift.StringResource(key: "arial", tableName: "Scenes", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Cancel
       static let cancel = Rswift.StringResource(key: "cancel", tableName: "Scenes", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Confirm password
       static let confirmPassword = Rswift.StringResource(key: "confirmPassword", tableName: "Scenes", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Description
+      static let placeholderForTextView = Rswift.StringResource(key: "placeholderForTextView", tableName: "Scenes", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Email
       static let email = Rswift.StringResource(key: "email", tableName: "Scenes", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Email adress
       static let emailAdress = Rswift.StringResource(key: "emailAdress", tableName: "Scenes", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Gill Sans
       static let gillSans = Rswift.StringResource(key: "gillSans", tableName: "Scenes", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Name
+      static let placeholderForName = Rswift.StringResource(key: "placeholderForName", tableName: "Scenes", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: New
       static let new = Rswift.StringResource(key: "new", tableName: "Scenes", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: New password
@@ -988,12 +1010,8 @@ struct R: Rswift.Validatable {
       static let refreshToken = Rswift.StringResource(key: "refreshToken", tableName: "Scenes", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: true
       static let `true` = Rswift.StringResource(key: "true", tableName: "Scenes", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Введите название для фото
-      static let placeholderForName = Rswift.StringResource(key: "placeholderForName", tableName: "Scenes", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Выберете изображение или заполните все поля.
       static let recomendation = Rswift.StringResource(key: "recomendation", tableName: "Scenes", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Добавьте описание к фото
-      static let placeholderForTextView = Rswift.StringResource(key: "placeholderForTextView", tableName: "Scenes", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Попробуйте снова либо проверьте интернет соединение.
       static let recomendationInternet = Rswift.StringResource(key: "recomendationInternet", tableName: "Scenes", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Что-то не в порядке...
@@ -1090,17 +1108,17 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("areYouShure", tableName: "Scenes", bundle: bundle, comment: "")
       }
 
-      /// Value: Avenir-Black
-      static func avenirBlack(preferredLanguages: [String]? = nil) -> String {
+      /// Value: Arial
+      static func arial(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("avenirBlack", tableName: "Scenes", bundle: hostingBundle, comment: "")
+          return NSLocalizedString("arial", tableName: "Scenes", bundle: hostingBundle, comment: "")
         }
 
         guard let (_, bundle) = localeBundle(tableName: "Scenes", preferredLanguages: preferredLanguages) else {
-          return "avenirBlack"
+          return "arial"
         }
 
-        return NSLocalizedString("avenirBlack", tableName: "Scenes", bundle: bundle, comment: "")
+        return NSLocalizedString("arial", tableName: "Scenes", bundle: bundle, comment: "")
       }
 
       /// Value: Cancel
@@ -1127,6 +1145,19 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("confirmPassword", tableName: "Scenes", bundle: bundle, comment: "")
+      }
+
+      /// Value: Description
+      static func placeholderForTextView(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("placeholderForTextView", tableName: "Scenes", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Scenes", preferredLanguages: preferredLanguages) else {
+          return "placeholderForTextView"
+        }
+
+        return NSLocalizedString("placeholderForTextView", tableName: "Scenes", bundle: bundle, comment: "")
       }
 
       /// Value: Email
@@ -1166,6 +1197,19 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("gillSans", tableName: "Scenes", bundle: bundle, comment: "")
+      }
+
+      /// Value: Name
+      static func placeholderForName(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("placeholderForName", tableName: "Scenes", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Scenes", preferredLanguages: preferredLanguages) else {
+          return "placeholderForName"
+        }
+
+        return NSLocalizedString("placeholderForName", tableName: "Scenes", bundle: bundle, comment: "")
       }
 
       /// Value: New
@@ -1532,19 +1576,6 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("true", tableName: "Scenes", bundle: bundle, comment: "")
       }
 
-      /// Value: Введите название для фото
-      static func placeholderForName(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("placeholderForName", tableName: "Scenes", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Scenes", preferredLanguages: preferredLanguages) else {
-          return "placeholderForName"
-        }
-
-        return NSLocalizedString("placeholderForName", tableName: "Scenes", bundle: bundle, comment: "")
-      }
-
       /// Value: Выберете изображение или заполните все поля.
       static func recomendation(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
@@ -1556,19 +1587,6 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("recomendation", tableName: "Scenes", bundle: bundle, comment: "")
-      }
-
-      /// Value: Добавьте описание к фото
-      static func placeholderForTextView(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("placeholderForTextView", tableName: "Scenes", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Scenes", preferredLanguages: preferredLanguages) else {
-          return "placeholderForTextView"
-        }
-
-        return NSLocalizedString("placeholderForTextView", tableName: "Scenes", bundle: bundle, comment: "")
       }
 
       /// Value: Попробуйте снова либо проверьте интернет соединение.

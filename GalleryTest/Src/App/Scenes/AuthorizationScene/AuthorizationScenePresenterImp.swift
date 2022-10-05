@@ -23,7 +23,6 @@ class AuthorizationScenePresenterImp: AuthorizationScenePresenter {
     private let userDefaultsUsecase: UserDefaultsUsecase
     private let userUsecase: UserUsecase
 
-    
     //MARK: - Init
     init(_ view: AuthorizationSceneView,
          _ router: AuthorizationSceneRouter,
@@ -37,16 +36,12 @@ class AuthorizationScenePresenterImp: AuthorizationScenePresenter {
         self.userUsecase = userUsecase
     }
     
-
-    
     func loginUser(userName: String, password: String) {
-        
         self.view?.errorLabel(hide: true)
         authUseCase.signUp(login: userName,
                            password: password)
             .observe(on: MainScheduler.instance)
             .subscribe { _ in
-                
                 self.router.openMainScene()
                 self.getUserInfo()
             } onFailure: { error in
@@ -57,7 +52,6 @@ class AuthorizationScenePresenterImp: AuthorizationScenePresenter {
     }
     
     func getUserInfo() {
-        
         userUsecase.getCurrentUser()
             .subscribe(
                 onSuccess: { user in
@@ -70,15 +64,12 @@ class AuthorizationScenePresenterImp: AuthorizationScenePresenter {
                             return
                         }
                         self.userDefaultsUsecase.saveUserInfo(userName, userId)
-                        
                     }
                 }, onFailure: { error in
                     print(error)
                 })
             .disposed(by: disposeBag)
-        
     }
-    
     
     func regButtonPressed() {
         router.openRegisterScene()

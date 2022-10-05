@@ -15,6 +15,10 @@ import PhotosUI
 
 class PhotoPresenterImp: PhotoPresenter {
     
+    func openMain() {
+        router?.openMainScene()
+    }
+    
     var imagePicker = UIImagePickerController()
     
     private var view: PhotoView?
@@ -87,5 +91,4 @@ class PhotoPresenterImp: PhotoPresenter {
             view?.collectionView.reloadData()
         }
     }
-    
 }

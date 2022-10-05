@@ -254,7 +254,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
    
     //passwordTextField
     private func configureConfirmPasswordTextFields() {
-        
         confirmPasswordTextField.placeholder = R.string.scenes.confirmPassword()
         confirmPasswordTextField.configureView(for: Images.password)
         contentView.addSubview(confirmPasswordTextField)
@@ -270,7 +269,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     //configureDeleteLabel
     private func configureDeleteLabel() {
-        
         deleteLabel.font = UIFont(name: deleteLabel.font.fontName,
                                   size: 15)
         deleteLabel.text = R.string.scenes.youCan()
@@ -294,7 +292,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     //signOutButton
     private func configureSignOutButton() {
-        
         signOutButton.setTitle(R.string.scenes.signOut(),
                                for: .normal)
         signOutButton.tintColor = R.color.appPink()
@@ -332,19 +329,16 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    @objc func saveButtonPressed() {
-    }
+    @objc func saveButtonPressed() { }
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         let textFieldArray = [nameTextField, birthdayTextField, emailTextField, passwordTextField, newPasswordTextField, confirmPasswordTextField]
         for textField in textFieldArray {
             textField.resignFirstResponder()
         }
         return true
     }
-    
     
 }
 

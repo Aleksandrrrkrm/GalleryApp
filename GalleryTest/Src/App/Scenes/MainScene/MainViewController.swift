@@ -36,7 +36,6 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         MainConfigurator.configure(view: self)
         settingsView()
@@ -47,7 +46,6 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     
     // SearchBar
     private func configureSearchBar() {
-        
         self.navigationItem.titleView = searchBar
         searchBar.placeholder = R.string.scenes.searchbarPlaceholder()
     }
@@ -57,8 +55,8 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     
         custom.items = [R.string.scenes.new(), R.string.scenes.popular()]
         custom.unselectedLabelColor = .gray
-        custom.thumbColor = .purple
-        custom.font = UIFont(name: R.string.scenes.avenirBlack(), size: 18)
+        custom.thumbColor = R.color.appPink() ?? .purple
+        custom.font = UIFont(name: R.string.scenes.arial(), size: 18)
         custom.borderColor = UIColor(white: 1.0, alpha: 0.3)
         custom.selectedIndex = 0
         custom.padding = 2
@@ -247,8 +245,7 @@ extension MainViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar,
                    textDidChange searchText: String) {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
-            self.presenter?.arrayPhotoData = []
-            self.presenter?.currentPage = 1
+            self.presenter?.resetCollectionData()
             switch self.custom.selectedIndex {
             case 0:
                 self.presenter?.getPhoto(isNew: true, for: searchText)
@@ -298,9 +295,10 @@ extension MainViewController: UICollectionViewDelegate {
         guard let photoData = collectionView.cellForItem(at: indexPath) as? MainPhotoCell else {
             return
         }
-        guard let photo = photoData.imageView.image else { return }
-        guard let photoObject = presenter?.arrayPhotoData[indexPath.row].name else { return }
-        let description = presenter?.arrayPhotoData[indexPath.row].description
+        guard let photo = photoData.imageView.image else {
+            return
+            
+        }
         guard var userId = presenter?.arrayPhotoData[indexPath.row].user else {
             return
         }
@@ -309,11 +307,15 @@ extension MainViewController: UICollectionViewDelegate {
                 userId.removeFirst()
             }
         }
-        print(presenter?.arrayPhotoData[indexPath.row].dateCreate)
-        presenter?.openDetailScene(photoName: photoObject,
-                                   photo: photo,
-                                   description: description,
-                                   photoUserName: userId)
+         let data = PhotoData(name: presenter?.arrayPhotoData[indexPath.row].name,
+                              dateCreate: presenter?.arrayPhotoData[indexPath.row].dateCreate,
+                              description: presenter?.arrayPhotoData[indexPath.row].description,
+                              new: nil,
+                              popular: nil,
+                              user: userId,
+                              id: nil,
+                              image: nil)
+        presenter?.openDetailScene(data: data, photo: photo)
     }
 }
 

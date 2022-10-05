@@ -63,8 +63,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNU-tL-WkJ">
-                                                <rect key="frame" x="16" y="50" width="338" height="10"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNU-tL-WkJ">
+                                                <rect key="frame" x="16" y="50" width="318" height="10"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="10" id="ncd-lO-l0k"/>
                                                 </constraints>
@@ -72,7 +72,7 @@
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0HI-Sc-RBg">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0HI-Sc-RBg">
                                                 <rect key="frame" x="12" y="80" width="390" height="200"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
@@ -93,19 +93,24 @@
                                                 <color key="textColor" red="0.78039217000000005" green="0.78039217000000005" blue="0.78039217000000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aDH-tg-wGy">
-                                                <rect key="frame" x="427" y="-39" width="82" height="65"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="6R0-zB-Y8K">
                                                 <rect key="frame" x="378" y="21" width="27" height="9"/>
                                                 <color key="tintColor" red="0.78039217000000005" green="0.78039217000000005" blue="0.78039217000000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUT-UD-Dp8">
+                                                <rect key="frame" x="334" y="40" width="68" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" red="0.78039217000000005" green="0.78039217000000005" blue="0.78039217000000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="IUT-UD-Dp8" firstAttribute="leading" secondItem="fNU-tL-WkJ" secondAttribute="trailing" id="3SC-vX-uSA"/>
                                             <constraint firstAttribute="trailing" secondItem="0HI-Sc-RBg" secondAttribute="trailing" constant="12" id="59p-Z6-PgZ"/>
                                             <constraint firstItem="6R0-zB-Y8K" firstAttribute="leading" secondItem="ePf-El-Rq2" secondAttribute="trailing" constant="24" id="6Em-aM-cdR"/>
+                                            <constraint firstItem="0HI-Sc-RBg" firstAttribute="top" secondItem="IUT-UD-Dp8" secondAttribute="bottom" constant="19" id="FWo-sb-efx"/>
+                                            <constraint firstAttribute="trailing" secondItem="IUT-UD-Dp8" secondAttribute="trailing" constant="12" id="GJg-yK-E1V"/>
                                             <constraint firstItem="0HI-Sc-RBg" firstAttribute="leading" secondItem="Ysa-4T-nyB" secondAttribute="leading" constant="12" id="HMM-gc-r26"/>
                                             <constraint firstAttribute="trailing" secondItem="O4g-QK-i5g" secondAttribute="trailing" constant="33" id="NhI-LA-pdg"/>
                                             <constraint firstItem="O4g-QK-i5g" firstAttribute="top" secondItem="Ysa-4T-nyB" secondAttribute="top" constant="19" id="OKC-jS-2JD"/>
@@ -115,9 +120,10 @@
                                             <constraint firstItem="ePf-El-Rq2" firstAttribute="top" secondItem="Ysa-4T-nyB" secondAttribute="top" constant="10" id="Wpf-ra-frx"/>
                                             <constraint firstAttribute="trailing" secondItem="ePf-El-Rq2" secondAttribute="trailing" constant="60" id="edf-Xi-g6H"/>
                                             <constraint firstItem="0HI-Sc-RBg" firstAttribute="top" secondItem="fNU-tL-WkJ" secondAttribute="bottom" constant="20" id="kUy-I2-xLe"/>
-                                            <constraint firstAttribute="trailing" secondItem="fNU-tL-WkJ" secondAttribute="trailing" constant="60" id="ks6-Wq-DFn"/>
+                                            <constraint firstAttribute="trailing" secondItem="fNU-tL-WkJ" secondAttribute="trailing" constant="80" id="ks6-Wq-DFn"/>
                                             <constraint firstItem="ePf-El-Rq2" firstAttribute="leading" secondItem="Ysa-4T-nyB" secondAttribute="leading" constant="16" id="njG-Ue-bJ4"/>
                                             <constraint firstItem="fNU-tL-WkJ" firstAttribute="leading" secondItem="Ysa-4T-nyB" secondAttribute="leading" constant="16" id="qfB-hW-w7c"/>
+                                            <constraint firstItem="IUT-UD-Dp8" firstAttribute="top" secondItem="ePf-El-Rq2" secondAttribute="bottom" id="usl-s1-hUH"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -148,6 +154,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Tr2-dp-a0M"/>
                     <connections>
+                        <outlet property="dateLabel" destination="IUT-UD-Dp8" id="pVP-Vi-HZ3"/>
                         <outlet property="descriptionTextView" destination="0HI-Sc-RBg" id="gab-YB-fy1"/>
                         <outlet property="imageScroll" destination="z8M-F2-7vK" id="JWe-Jg-Rfl"/>
                         <outlet property="imageView" destination="L0h-ZJ-sMK" id="mx9-N2-5PQ"/>

@@ -22,13 +22,10 @@ enum AuthorizationSceneConfigurator {
         view.presenter = presenter
     }
     
-    
-    
     static func open(navigationController: UINavigationController) {
         guard let view = R.storyboard.authorizationSceneStoryboard.instantiateInitialViewController() else {
             return
         }
-        
         var isRegVCAlreadyInStack = false
         
         for controller in navigationController.viewControllers {
@@ -36,9 +33,7 @@ enum AuthorizationSceneConfigurator {
                 isRegVCAlreadyInStack = true
             }
         }
-        
         Self.configure(view: view)
-        
         if isRegVCAlreadyInStack {
             navigationController.popViewController(animated: true)
         } else {

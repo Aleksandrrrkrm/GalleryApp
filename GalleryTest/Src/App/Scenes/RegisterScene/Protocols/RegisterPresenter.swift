@@ -17,6 +17,9 @@ protocol RegisterPresenter {
 
     func authButtonPressed()
     
-    func validateUserName(userName: String, email: String, password: String, confirmPassword: String) -> String?
+    func validateUserName(userName: String) -> String?
+    func validateEmail(email: String) -> String?
+    func validatePassword(password: String) -> String?
+    func validateConfirmPassword(password: String, confirmPassword: String) -> String?
     
 }

@@ -19,14 +19,11 @@ class AuthorizationSceneRouter: BaseRouter {
     }
     
     func openMainScene() {
-        
         DispatchQueue.main.async {
             let appDelegate = (UIApplication.shared.delegate as? AppDelegate)
             appDelegate?.openMainScreen(window: appDelegate?.window)
         }
     }
-    
-    
     
     func openRegisterScene() {
         guard let navController = self.view?.navigationController else {
@@ -34,4 +31,5 @@ class AuthorizationSceneRouter: BaseRouter {
         }
           RegisterConfigurator.open(navigationController: navController)
     }
+    
 }

@@ -19,4 +19,5 @@ protocol PhotoPresenter {
     var allImages: [UIImage] { get set }
     var countOfPhoto: Int { get set }
     func addPhoto(image: UIImage)
+    func openMain()
 }

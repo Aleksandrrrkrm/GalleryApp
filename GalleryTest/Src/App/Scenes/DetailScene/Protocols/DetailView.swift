@@ -11,10 +11,11 @@
 import UIKit
 
 protocol DetailView {
-    
+    var dateLabel: UILabel! { get set }
     var image: UIImage? { get set }
     var name: String? { get set }
     var descriptionPhoto: String? { get set }
     var userNameLabel: UILabel! { get set }
     var userName: String? { get set }
+    var photoDate: String? { get set }
 }

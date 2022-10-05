@@ -10,9 +10,8 @@
 
 import UIKit
 
-protocol ProfileView {
-    
+protocol ProfileView {    
     var userNameLabel: UILabel! { get set }
-    
     var collectionUserView: UICollectionView! { get }
+    var userPhotosCount: UILabel! { get set }
 }

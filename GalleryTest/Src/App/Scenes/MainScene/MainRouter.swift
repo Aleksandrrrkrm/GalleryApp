@@ -17,17 +17,13 @@ class MainRouter: BaseRouter {
         self.view = view
     }
     
-    func openSomeScene(photoName: String,
-                       photo: UIImage,
-                       description: String?,
-                       photoUserName: String?) {
+    func openSomeScene(data: PhotoData?,
+                       photo: UIImage) {
         guard let navController = self.view?.navigationController else {
             return
         }
         DetailConfigurator.open(navigationController: navController,
-                                photoString: photoName,
-                                photo: photo,
-                                description: description,
-                                photoUserName: photoUserName)
+                                data: data,
+                                photo: photo)
     }
 }

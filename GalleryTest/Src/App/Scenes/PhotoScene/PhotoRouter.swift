@@ -25,4 +25,11 @@ class PhotoRouter: BaseRouter {
         AddPhotoConfigurator.open(navigationController: navController,
                                   image: image)
     }
+    
+    func openMainScene() {
+        guard let navController = self.view?.navigationController else {
+            return
+        }
+        MainConfigurator.open(navigationController: navController)
+    }
 }

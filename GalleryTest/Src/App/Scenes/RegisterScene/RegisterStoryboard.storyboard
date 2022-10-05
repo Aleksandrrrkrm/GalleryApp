@@ -126,19 +126,37 @@
                                                 <attributedString key="attributedText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3GS-Gn-dKi">
+                                                <rect key="frame" x="16" y="216" width="382" height="0.0"/>
+                                                <attributedString key="attributedText"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dE-4E-lXj">
+                                                <rect key="frame" x="16" y="346" width="382" height="0.0"/>
+                                                <attributedString key="attributedText"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35l-RP-EmH">
+                                                <rect key="frame" x="16" y="411" width="382" height="0.0"/>
+                                                <attributedString key="attributedText"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <viewLayoutGuide key="safeArea" id="kYr-su-MjX"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
                                         <constraints>
+                                            <constraint firstItem="kYr-su-MjX" firstAttribute="trailing" secondItem="5dE-4E-lXj" secondAttribute="trailing" constant="16" id="0nZ-Le-75Y"/>
                                             <constraint firstItem="EPy-C6-yWu" firstAttribute="top" secondItem="I5y-KC-Ys2" secondAttribute="bottom" constant="10" id="2LD-4e-h0V"/>
                                             <constraint firstItem="Tdh-4t-62p" firstAttribute="top" secondItem="cXh-uz-kgd" secondAttribute="bottom" constant="8" symbolic="YES" id="2jG-1m-dA7"/>
                                             <constraint firstItem="cXh-uz-kgd" firstAttribute="leading" secondItem="kYr-su-MjX" secondAttribute="leading" constant="16" id="6NA-H7-aMG"/>
                                             <constraint firstItem="poI-gh-RjL" firstAttribute="top" secondItem="HJA-lB-5yy" secondAttribute="bottom" constant="29" id="8QP-4m-wRy"/>
                                             <constraint firstItem="kYr-su-MjX" firstAttribute="trailing" secondItem="cXh-uz-kgd" secondAttribute="trailing" constant="16" id="DzR-TB-INz"/>
+                                            <constraint firstItem="kYr-su-MjX" firstAttribute="trailing" secondItem="3GS-Gn-dKi" secondAttribute="trailing" constant="16" id="FMb-In-9IF"/>
                                             <constraint firstItem="cXh-uz-kgd" firstAttribute="centerX" secondItem="PtH-Aj-jvf" secondAttribute="centerX" id="Gbi-Yk-qim"/>
                                             <constraint firstItem="Tfy-xJ-lAU" firstAttribute="top" secondItem="ae1-RO-42U" secondAttribute="bottom" constant="29" id="IUt-ex-GeY"/>
                                             <constraint firstItem="Tfy-xJ-lAU" firstAttribute="centerX" secondItem="PtH-Aj-jvf" secondAttribute="centerX" id="Knf-MZ-JRt"/>
+                                            <constraint firstItem="35l-RP-EmH" firstAttribute="leading" secondItem="kYr-su-MjX" secondAttribute="leading" constant="16" id="MMZ-ip-0Oy"/>
                                             <constraint firstItem="kYr-su-MjX" firstAttribute="trailing" secondItem="Tfy-xJ-lAU" secondAttribute="trailing" constant="16" id="PAo-j6-nX4"/>
                                             <constraint firstItem="HJA-lB-5yy" firstAttribute="leading" secondItem="kYr-su-MjX" secondAttribute="leading" constant="16" id="Pjj-oZ-dPP"/>
                                             <constraint firstItem="kYr-su-MjX" firstAttribute="trailing" secondItem="HJA-lB-5yy" secondAttribute="trailing" constant="16" id="Upp-BF-zzg"/>
@@ -151,17 +169,23 @@
                                             <constraint firstItem="aZT-j2-Nl3" firstAttribute="top" secondItem="PtH-Aj-jvf" secondAttribute="top" constant="100" id="bof-Eg-B68"/>
                                             <constraint firstAttribute="height" constant="896" id="eF7-oG-xhF"/>
                                             <constraint firstItem="I5y-KC-Ys2" firstAttribute="top" secondItem="cXh-uz-kgd" secondAttribute="bottom" constant="50" id="eUz-qF-UsP"/>
+                                            <constraint firstItem="3GS-Gn-dKi" firstAttribute="leading" secondItem="kYr-su-MjX" secondAttribute="leading" constant="16" id="efH-E5-3dY"/>
                                             <constraint firstItem="Tdh-4t-62p" firstAttribute="centerX" secondItem="PtH-Aj-jvf" secondAttribute="centerX" id="fab-5H-PgE"/>
                                             <constraint firstItem="kYr-su-MjX" firstAttribute="trailing" secondItem="poI-gh-RjL" secondAttribute="trailing" constant="16" id="fgF-lg-VDg"/>
                                             <constraint firstItem="Tfy-xJ-lAU" firstAttribute="leading" secondItem="kYr-su-MjX" secondAttribute="leading" constant="16" id="kKI-K3-HQx"/>
                                             <constraint firstItem="EPy-C6-yWu" firstAttribute="centerX" secondItem="PtH-Aj-jvf" secondAttribute="centerX" id="nEy-tS-Lya"/>
                                             <constraint firstItem="poI-gh-RjL" firstAttribute="leading" secondItem="kYr-su-MjX" secondAttribute="leading" constant="16" id="ncm-Nw-3gG"/>
                                             <constraint firstItem="kYr-su-MjX" firstAttribute="trailing" secondItem="ae1-RO-42U" secondAttribute="trailing" constant="16" id="oFA-Mp-cY8"/>
+                                            <constraint firstItem="35l-RP-EmH" firstAttribute="top" secondItem="poI-gh-RjL" secondAttribute="bottom" id="ocf-Ah-JcI"/>
+                                            <constraint firstItem="3GS-Gn-dKi" firstAttribute="top" secondItem="ae1-RO-42U" secondAttribute="bottom" id="qoL-pY-nop"/>
                                             <constraint firstItem="cXh-uz-kgd" firstAttribute="top" secondItem="poI-gh-RjL" secondAttribute="bottom" constant="29" id="r78-yv-3tP"/>
                                             <constraint firstItem="ae1-RO-42U" firstAttribute="leading" secondItem="kYr-su-MjX" secondAttribute="leading" constant="16" id="sSP-9m-Z3I"/>
                                             <constraint firstItem="Tdh-4t-62p" firstAttribute="leading" secondItem="cXh-uz-kgd" secondAttribute="leading" id="sr1-kE-esJ"/>
+                                            <constraint firstItem="5dE-4E-lXj" firstAttribute="top" secondItem="HJA-lB-5yy" secondAttribute="bottom" id="uva-AH-fUV"/>
+                                            <constraint firstItem="5dE-4E-lXj" firstAttribute="leading" secondItem="kYr-su-MjX" secondAttribute="leading" constant="16" id="vNR-jR-rf9"/>
                                             <constraint firstItem="aZT-j2-Nl3" firstAttribute="centerX" secondItem="PtH-Aj-jvf" secondAttribute="centerX" id="wVf-Ey-Vje"/>
                                             <constraint firstItem="HJA-lB-5yy" firstAttribute="centerX" secondItem="PtH-Aj-jvf" secondAttribute="centerX" id="wgd-Uq-IiS"/>
+                                            <constraint firstItem="kYr-su-MjX" firstAttribute="trailing" secondItem="35l-RP-EmH" secondAttribute="trailing" constant="16" id="wkN-gi-j35"/>
                                             <constraint firstItem="ae1-RO-42U" firstAttribute="centerX" secondItem="PtH-Aj-jvf" secondAttribute="centerX" id="yiy-m9-gBw"/>
                                             <constraint firstItem="poI-gh-RjL" firstAttribute="centerX" secondItem="PtH-Aj-jvf" secondAttribute="centerX" id="zUL-z9-QQW"/>
                                         </constraints>
@@ -192,7 +216,10 @@
                     <connections>
                         <outlet property="buttonLogin" destination="EPy-C6-yWu" id="7kP-fh-RPA"/>
                         <outlet property="buttonRegister" destination="I5y-KC-Ys2" id="PAv-5Q-Kp7"/>
-                        <outlet property="errorLabel" destination="Tdh-4t-62p" id="yF8-Iz-9y3"/>
+                        <outlet property="errorConfirmPasswordLabel" destination="Tdh-4t-62p" id="8gd-R2-tRR"/>
+                        <outlet property="errorEmailLabel" destination="5dE-4E-lXj" id="9fu-N2-Wix"/>
+                        <outlet property="errorNameLabel" destination="3GS-Gn-dKi" id="btV-L3-FCa"/>
+                        <outlet property="errorPasswordLabel" destination="35l-RP-EmH" id="bo5-yr-tDP"/>
                         <outlet property="textFieldBirthday" destination="Tfy-xJ-lAU" id="7Km-Hc-jQc"/>
                         <outlet property="textFieldConfirmPassword" destination="cXh-uz-kgd" id="tx3-Lg-8Gn"/>
                         <outlet property="textFieldEmail" destination="HJA-lB-5yy" id="2om-mD-T2L"/>

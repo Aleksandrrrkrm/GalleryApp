@@ -30,7 +30,7 @@
                                 </connections>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="V2Z-Oc-eqg">
-                                <rect key="frame" x="0.0" y="414" width="414" height="482"/>
+                                <rect key="frame" x="0.0" y="414" width="414" height="382"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tn8-t2-yJd">
                                     <size key="itemSize" width="128" height="128"/>
@@ -76,7 +76,7 @@
                         <constraints>
                             <constraint firstItem="XLE-cJ-gA3" firstAttribute="leading" secondItem="Nfl-oo-HU2" secondAttribute="leading" id="3Q2-pQ-41S"/>
                             <constraint firstItem="Aqc-v4-vP7" firstAttribute="centerX" secondItem="u09-hB-HPD" secondAttribute="centerX" id="7sy-EC-GHG"/>
-                            <constraint firstAttribute="bottom" secondItem="V2Z-Oc-eqg" secondAttribute="bottom" id="A6T-uf-n2F"/>
+                            <constraint firstAttribute="bottom" secondItem="V2Z-Oc-eqg" secondAttribute="bottom" constant="100" id="A6T-uf-n2F"/>
                             <constraint firstItem="Aqc-v4-vP7" firstAttribute="trailing" secondItem="Nfl-oo-HU2" secondAttribute="trailing" id="A9d-WI-aDl"/>
                             <constraint firstItem="Aqc-v4-vP7" firstAttribute="leading" secondItem="Nfl-oo-HU2" secondAttribute="leading" id="T2G-My-Zhc"/>
                             <constraint firstItem="V2Z-Oc-eqg" firstAttribute="trailing" secondItem="Nfl-oo-HU2" secondAttribute="trailing" id="bPt-ua-WtV"/>

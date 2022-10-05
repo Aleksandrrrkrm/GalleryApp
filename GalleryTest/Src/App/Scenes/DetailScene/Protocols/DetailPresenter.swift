@@ -12,4 +12,5 @@ import Foundation
 
 protocol DetailPresenter {
     func getUserName(_ id: String)
+    func parsingDate(_ date: String)
 }

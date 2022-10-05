@@ -20,7 +20,7 @@
 "asterix" = "*";
 "gillSans" = "Gill Sans";
 "emptyLine" = "";
-"avenirBlack" = "Avenir-Black";
+"arial" = "Arial";
 "new" = "New";
 "popular" = "Popular";
 "true" = "true";
@@ -38,8 +38,8 @@
 "apiEndpoint" = "https://gallery.prod1.webant.ru";
 "clientId" = "1_3fxvjh2ky7s44cskwcgo0k8cwwogkocs8k4cwcwsg0skcsw4ok";
 "secretId" = "4tf1qez2dc4ksg8w4og4co4w40s0gokwwkwkss8gc400owkokc";
-"placeholderForTextView" = "Добавьте описание к фото";
-"placeholderForName" = "Введите название для фото";
+"placeholderForTextView" = "Description";
+"placeholderForName" = "Name";
 "add" = "Add";
 "someThingWrong" = "Что-то не в порядке...";
 "recomendation" = "Выберете изображение или заполните все поля.";

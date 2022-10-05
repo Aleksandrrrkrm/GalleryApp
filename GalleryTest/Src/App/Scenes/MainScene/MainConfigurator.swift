@@ -22,6 +22,12 @@ enum MainConfigurator {
     }
 
     static func open(navigationController: UINavigationController) {
-              
+        guard let view = R.storyboard.mainStoryboard.instantiateInitialViewController() else {
+            return
+        }
+        Self.configure(view: view)
+//        navigationController.pushViewController(view,
+//                                                animated: true)
+        view.present(view, animated: true)
     }
 }

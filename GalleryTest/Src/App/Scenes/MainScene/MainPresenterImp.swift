@@ -74,14 +74,10 @@ class MainPresenterImp: MainPresenter {
     
 
     
-    func openDetailScene(photoName: String,
-                         photo: UIImage,
-                         description: String?,
-                         photoUserName: String?) {
-        router.openSomeScene(photoName: photoName,
-                             photo: photo,
-                             description: description,
-                             photoUserName: photoUserName)
+    func openDetailScene(data: PhotoData?,
+                         photo: UIImage) {
+        router.openSomeScene(data: data,
+                             photo: photo)
         
     }
     

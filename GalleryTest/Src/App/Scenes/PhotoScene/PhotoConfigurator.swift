@@ -33,12 +33,10 @@ enum PhotoConfigurator {
     
     
     static func openWihtPhoto(photo: UIImage) {
-        
         guard let view = R.storyboard.photoStoryboard.instantiateInitialViewController() else {
             return
         }
         Self.configure(view: view)
         view.imageView.image = photo
     }
-    
 }

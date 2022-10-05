@@ -13,20 +13,19 @@ import SnapKit
 import SwiftEntryKit
 
 class AddPhotoViewController: UIViewController {
-    
-    
+        
     //MARK: - OUTLETS
     internal var presenter: AddPhotoPresenter?
     var imageView = UIImageView()
     var activityIndicatorView = UIImageView()
     var nameLabel = UITextView()
     var myTextView = UITextView()
+    var viewForText = UIView()
     var tap = UITapGestureRecognizer()
     var timer: Timer?
     let placeholderForTextView = R.string.scenes.placeholderForTextView()
     let placeholderForName = R.string.scenes.placeholderForName()
    
-    
     //MARK: - LYFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,72 +33,78 @@ class AddPhotoViewController: UIViewController {
         nameLabel.delegate = self
         configureViews()
     }
-    
-    
+        
     //MARK: CONFIGURE SCENE
     private func configureViews() {
-        
         activityIndicatorView.isHidden = true
-        
-        view.backgroundColor = .white
+        view.backgroundColor = .init(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
         imageView.backgroundColor = .black
         configureImageView()
+        configureViewForView()
         configureNameLabel()
         configureTextView()
         configureNavTitle()
         configureTapRecognaizer()
         configureImageViewIndicator()
     }
-    
-    
+        
     private func configureImageView() {
-    
         view.addSubview(imageView)
-        imageView.layer.borderWidth = 0.3
         imageView.snp.makeConstraints { make in
-            make.width.equalToSuperview().offset(-4)
-            make.height.equalTo(320)
+            make.width.equalToSuperview()
+            make.height.equalTo(280)
             make.top.equalToSuperview().offset(100)
-            make.centerX.equalToSuperview()
+        }
+    }
+    
+    private func configureViewForView() {
+        viewForText.layer.borderColor = .init(red: 200/255, green: 200/255, blue: 200/255, alpha: 1)
+        viewForText.layer.borderWidth = 1
+        view.addSubview(viewForText)
+        viewForText.backgroundColor = .white
+        viewForText.snp.makeConstraints { make in
+            make.width.equalToSuperview()
+            make.top.equalTo(imageView.snp.bottom).offset(63)
+            make.bottom.equalToSuperview()
         }
     }
     
     
     private func configureNameLabel() {
-        
-        view.addSubview(nameLabel)
-        nameLabel.font = UIFont(name: R.string.scenes.avenirBlack(),
-                                size: 15)
-        nameLabel.layer.borderWidth = 0.5
-        nameLabel.layer.cornerRadius = 10
+        viewForText.addSubview(nameLabel)
+        nameLabel.font = UIFont(name: R.string.scenes.arial(),
+                                size: 17)
+        nameLabel.layer.borderWidth = 1
+        nameLabel.layer.cornerRadius = 4
+        nameLabel.layer.borderColor = .init(red: 196/255, green: 196/255, blue: 196/255, alpha: 1)
         nameLabel.text = placeholderForName
-        nameLabel.textColor = UIColor.lightGray
+        nameLabel.textColor = R.color.appGrayTextFields()
         nameLabel.snp.makeConstraints { make in
-            make.width.equalToSuperview().offset(-4)
-            make.height.equalTo(40)
-            make.top.equalTo(imageView.snp.bottom).offset(5)
-            make.centerX.equalToSuperview()
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(36)
+            make.top.equalToSuperview().offset(10)
         }
     }
-    
     
     private func configureTextView() {
-        
-        view.addSubview(myTextView)
-        myTextView.font = UIFont(name: R.string.scenes.avenirBlack(),
-                                 size: 15)
-        myTextView.layer.borderWidth = 0.5
-        myTextView.layer.cornerRadius = 10
+        viewForText.addSubview(myTextView)
+//        myTextView.font = UIFont(name: R.string.scenes.avenirBlack(),
+//                                 size: 15)
+        myTextView.font = UIFont(name: R.string.scenes.arial(),
+                                 size: 17)
+        myTextView.layer.borderWidth = 1
+        myTextView.layer.cornerRadius = 4
+        myTextView.layer.borderColor = .init(red: 196/255, green: 196/255, blue: 196/255, alpha: 1)
         myTextView.text = placeholderForTextView
-        myTextView.textColor = UIColor.lightGray
+        myTextView.textColor = R.color.appGrayTextFields()
         myTextView.snp.makeConstraints { make in
-            make.width.equalToSuperview().offset(-4)
-            make.height.equalTo(270)
-            make.top.equalTo(nameLabel.snp.bottom).offset(5)
-            make.centerX.equalToSuperview()
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(150)
+            make.top.equalTo(nameLabel.snp.bottom).offset(10)
         }
     }
-    
     
     private func configureTapRecognaizer() {
         
@@ -107,8 +112,7 @@ class AddPhotoViewController: UIViewController {
         tap.addTarget(self,
                       action: #selector(tapPressed))
     }
-    
-    
+        
     //MARK: -  Custom Activity Indicator
     private func configureImageViewIndicator() {
         activityIndicatorView.image = UIImage(resource: R.image.ellipse)
@@ -119,7 +123,6 @@ class AddPhotoViewController: UIViewController {
             $0.height.width.equalTo(80)
         }
     }
-    
     
     func startTimer() {
         self.activityIndicatorView.isHidden = false
@@ -155,17 +158,12 @@ class AddPhotoViewController: UIViewController {
         })
     }
     
-    
-    
     //MARK: - USAGE
-    
     @objc private func tapPressed() {
-        
         nameLabel.resignFirstResponder()
         myTextView.resignFirstResponder()
     }
-    
-    
+    //nav title
     private func configureNavTitle() {
         
         let rightButtonItem = UIBarButtonItem.init(
@@ -174,14 +172,12 @@ class AddPhotoViewController: UIViewController {
             target: self,
             action: #selector(addButtonPressed)
         )
-        rightButtonItem.tintColor = .purple
+        rightButtonItem.tintColor = R.color.appPink()
         self.navigationItem.rightBarButtonItem = rightButtonItem
     }
     
     @objc func addButtonPressed() {
-        
-        if myTextView.text == placeholderForTextView || nameLabel.text == placeholderForName || imageView.image == R.image.placeholder() || myTextView.text != nil || nameLabel.text != nil {
-            
+        if myTextView.text == placeholderForTextView || nameLabel.text == placeholderForName || imageView.image == R.image.placeholder() || myTextView.text == nil || nameLabel.text == nil {
             errorAlert(R.string.scenes.someThingWrong(), message: R.string.scenes.recomendation())
         } else {
             startTimer()
@@ -191,7 +187,6 @@ class AddPhotoViewController: UIViewController {
             guard let description = myTextView.text else {
                 return
             }
-            
             let photo = PhotoPostEntity(name: name,
                                         description: description,
                                         image: nil)
@@ -200,11 +195,9 @@ class AddPhotoViewController: UIViewController {
                 }
             presenter?.addDataButtonPressed(image,
                                             photo)
-            
         }
     }
 }
-
 
 //MARK: - EXTENSIONS
 extension AddPhotoViewController: AddPhotoView {
@@ -226,23 +219,19 @@ extension AddPhotoViewController: AddPhotoView {
                      animated: true,
                      completion: nil)
     }
-    
 }
 
 //MARK: - TextViews
 extension AddPhotoViewController: UITextViewDelegate {
-    
-    
     func textViewDidBeginEditing(_ textView: UITextView) {
-        
         switch textView {
         case myTextView:
-            if myTextView.textColor == .lightGray {
+            if myTextView.textColor == R.color.appGrayTextFields() {
                 myTextView.text = nil
                 myTextView.textColor = .black
             }
         case nameLabel:
-            if nameLabel.textColor == .lightGray {
+            if nameLabel.textColor == R.color.appGrayTextFields() {
                 nameLabel.text = nil
                 nameLabel.textColor = .black
             }
@@ -251,18 +240,17 @@ extension AddPhotoViewController: UITextViewDelegate {
         }
     }
     
-    
     func textViewDidEndEditing(_ textView: UITextView) {
         switch textView {
         case myTextView:
             if myTextView.text.isEmpty {
                 myTextView.text = placeholderForTextView
-                myTextView.textColor = UIColor.lightGray
+                myTextView.textColor = .lightGray
             }
         case nameLabel:
             if nameLabel.text.isEmpty {
                 nameLabel.text = placeholderForName
-                nameLabel.textColor = UIColor.lightGray
+                nameLabel.textColor = .lightGray
             }
         default:
             return

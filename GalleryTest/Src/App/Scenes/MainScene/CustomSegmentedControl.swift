@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 
-@IBDesignable public class CustomSegmentedControl: UIControl {
+public class CustomSegmentedControl: UIControl {
     
     fileprivate var labels = [UILabel]()
     private var thumbView = UIView()
@@ -24,23 +24,23 @@ import UIKit
         didSet { displayNewSelectedIndex() }
     }
     
-    @IBInspectable public var selectedLabelColor: UIColor = UIColor.black {
+    public var selectedLabelColor: UIColor = UIColor.black {
         didSet { setSelectedColors() }
     }
     
-    @IBInspectable public var unselectedLabelColor: UIColor = UIColor.white {
+    public var unselectedLabelColor: UIColor = UIColor.white {
         didSet { setSelectedColors() }
     }
     
-    @IBInspectable public var thumbColor: UIColor = UIColor.white {
+    public var thumbColor: UIColor = UIColor.white {
         didSet { setSelectedColors() }
     }
     
-    @IBInspectable public var borderColor: UIColor = UIColor.white {
+    public var borderColor: UIColor = UIColor.white {
         didSet { layer.borderColor = borderColor.cgColor }
     }
     
-    @IBInspectable public var font: UIFont? = UIFont.systemFont(ofSize: 12) {
+    public var font: UIFont? = UIFont.systemFont(ofSize: 12) {
         didSet { setFont() }
     }
     
@@ -82,7 +82,7 @@ import UIKit
             label.font = font
             label.textColor = index == 1 ? selectedLabelColor : unselectedLabelColor
             label.translatesAutoresizingMaskIntoConstraints = false
-
+            
             addSubview(label)
             labels.append(label)
         }
@@ -96,8 +96,8 @@ import UIKit
         if labels.count > 0 {
             let label = labels[selectedIndex]
             label.textColor = selectedLabelColor
-
-//            thumbView.frame = label.frame
+            
+            //            thumbView.frame = label.frame
             thumbView.frame = CGRect(x: label.frame.minX - 3, y: label.frame.maxY, width: label.frame.width - 5, height: 1)
             thumbView.backgroundColor = thumbColor
             thumbView.layer.cornerRadius = 5
@@ -114,15 +114,15 @@ import UIKit
             }
         }
         if calculatedIndex != selectedIndex {
-         if calculatedIndex != nil {
-            selectedIndex = calculatedIndex!
-            sendActions(for: .valueChanged)
+            if calculatedIndex != nil {
+                selectedIndex = calculatedIndex!
+                sendActions(for: .valueChanged)
             }
-        
+            
         }
         
         return false
-}
+    }
     
     private func displayNewSelectedIndex() {
         for (_, item) in labels.enumerated() {
@@ -186,8 +186,4 @@ import UIKit
 }
 
 
-class Segment: UISegmentedControl {
-    
-    
-    
-}
+class Segment: UISegmentedControl { }

@@ -23,13 +23,11 @@ class WelcomeViewController: UIViewController {
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         
         if presenter == nil {
             WelcomeConfigurator.configure(view: self)
         }
-        
         configureButtons() 
     }
     
@@ -72,5 +70,4 @@ class WelcomeViewController: UIViewController {
 }
 
 // MARK: - Extensions
-
-extension WelcomeViewController: WelcomeView {}
+extension WelcomeViewController: WelcomeView { }

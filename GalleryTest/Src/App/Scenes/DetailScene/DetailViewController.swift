@@ -18,6 +18,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var dateLabel: UILabel!
     
     //MARK: - Properties
     var image: UIImage?
@@ -25,6 +26,7 @@ class DetailViewController: UIViewController {
     var descriptionPhoto: String?
     internal var presenter: DetailPresenter?
     var userName: String?
+    var photoDate: String?
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -38,6 +40,7 @@ class DetailViewController: UIViewController {
         imageScroll.minimumZoomScale = 1.0
         imageScroll.maximumZoomScale = 10.0
         getUserName()
+        getPhotoDate()
     }
     
     func getUserName() {
@@ -45,6 +48,13 @@ class DetailViewController: UIViewController {
             return
         }
         presenter?.getUserName(id)
+    }
+    
+    func getPhotoDate() {
+        guard let photoDate = photoDate else {
+            return
+        }
+        presenter?.parsingDate(photoDate)
     }
 
 }

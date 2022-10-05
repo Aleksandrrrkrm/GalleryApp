@@ -52,17 +52,16 @@ class ProfilePresenterImp: ProfilePresenter {
                     for photo in data {
                         self.arrayUserPhotoData.append(photo)
                     }
-                    print(self.arrayUserPhotoData.count)
+                    self.view?.userPhotosCount.text = String(self.arrayUserPhotoData.count)
                     self.view?.collectionUserView.reloadData()
                 }, onFailure: {
-                    print($0)
+                    print($0.localizedDescription)
                 })
             .disposed(by: disposeBag)
     }
     
     
     func openSettings() {
-        
         router.openSomeScene()
     }
     

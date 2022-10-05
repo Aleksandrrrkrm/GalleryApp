@@ -16,48 +16,42 @@ import PhotosUI
 class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //MARK: - OUTLETS
-    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var imageView: UIImageView!
     internal var presenter: PhotoPresenter?
     var imagePicker = UIImagePickerController()
     var testView = UIView()
     var image: UIImage?
-    
     var imageLibrary = UIImagePickerController()
-
     var actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationItem.backButtonTitle = R.string.scenes.emptyLine()
-        navigationController?.navigationBar.tintColor = .black
-        imageLibrary.delegate = self
         imageLibrary.sourceType = .photoLibrary
         imageLibrary.allowsEditing = false
         addActionsForSheetAlert()
-        PhotoConfigurator.configure(view: self)
         image = R.image.placeholder()
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        imagePicker.delegate = self
         configureNavTitle()
+        configureDelegate()
         getPhoto()
     }
     
-    
-    
+    //MARK: - Configure Delegate
+    func configureDelegate() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        imagePicker.delegate = self
+        PhotoConfigurator.configure(view: self)
+        imageLibrary.delegate = self
+    }
     //MARK: - Layout
     override func viewDidLayoutSubviews() {
-        
         let spacing: CGFloat = 10
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
             heightDimension: .absolute(120))
@@ -65,28 +59,26 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
                                                        subitem: item,
                                                        count: 3)
         group.interItemSpacing = .fixed(spacing)
-        
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = .init(top: spacing,
                                       leading: spacing,
                                       bottom: spacing,
                                       trailing: spacing)
         section.interGroupSpacing = spacing
-        
         let layout = UICollectionViewCompositionalLayout(section: section)
         collectionView.collectionViewLayout = layout
         collectionView.collectionViewLayout.invalidateLayout()
     }
     
-    
-    
     // MARK: - USAGE
-    
     func getPhoto() {
         presenter?.getImages()
     }
     
-   
+    @objc func open() {
+        tabBarController?.selectedIndex = 0
+    }
+       
     func cameraButton() {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
             imageLibrary.sourceType = .camera
@@ -107,9 +99,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
     }
   
-    
     func galleryButton() {
-        
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) {
             imageLibrary.sourceType = .photoLibrary
             imageLibrary.allowsEditing = false
@@ -129,17 +119,13 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
     // TapOnTheImageView
     @IBAction func tap(_ sender: UITapGestureRecognizer) {
-    
         self.present(actionSheet,
                      animated: true,
                      completion: nil)
     }
     
-    
     //MARK: - CONFIGURE SCENE
-    
     private func addActionsForSheetAlert() {
-        
         actionSheet.addAction(UIAlertAction(title: R.string.scenes.selectPhoto(),
                                             style: .default,
                                             handler: { action in
@@ -151,16 +137,16 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
                                             handler: { action in
             self.cameraButton()
         }))
-        
         actionSheet.addAction(UIAlertAction(title: R.string.scenes.cancel(),
                                             style: .cancel,
                                             handler: { _ in
-            
         }))
     }
     
     // NavigationTitle
     private func configureNavTitle() {
+        navigationItem.backButtonTitle = R.string.scenes.emptyLine()
+        navigationController?.navigationBar.tintColor = .black
         
         let rightButtonItem = UIBarButtonItem.init(
             title: R.string.scenes.next(),
@@ -168,15 +154,36 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
             target: self,
             action: #selector(nextButtonPressed)
         )
-        rightButtonItem.tintColor = .purple
+        rightButtonItem.tintColor = R.color.appPink()
         self.navigationItem.rightBarButtonItem = rightButtonItem
-    }
-    @objc func nextButtonPressed() {
         
-        presenter?.addPhoto(image: image!)
+        
+        
+        let leftButtonItem = UIBarButtonItem.init(image: R.image.backImage(),
+                                                  style: .done,
+                                                  target: self,
+                                                  action: #selector(open))
+        leftButtonItem.tintColor = .black
+        self.navigationItem.leftBarButtonItem = leftButtonItem
+        
     }
     
-   
+    @objc func nextButtonPressed() {
+        if image != R.image.placeholder() {
+        presenter?.addPhoto(image: image!)
+        } else {
+            let alert  = UIAlertController(title: R.string.scenes.warning(),
+                                           message: R.string.scenes.selectPhoto(),
+                                           preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: R.string.scenes.ok(),
+                                          style: .default,
+                                          handler: nil))
+            self.present(alert,
+                         animated: true,
+                         completion: nil)
+        }
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[.originalImage] as? UIImage {
@@ -186,17 +193,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
             self.dismiss(animated: true)
     }
 }
-    
-    
-    
-    
-    
 }
-
-
-
-
-
 
 // MARK: - EXTENSIONS
 
@@ -211,20 +208,16 @@ extension PhotoViewController: UICollectionViewDataSource, UICollectionViewDeleg
             return UICollectionViewCell()
         }
     }
-    
-    
+        
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
        
         presenter?.countOfPhoto ?? 0
     }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let photoData = collectionView.cellForItem(at: indexPath) as? MyCell else {
             return
         }
-        
         imageView.alpha = 0.0
         guard let photo = photoData.imageView.image else { return }
         self.imageView.image = photo
@@ -237,11 +230,7 @@ extension PhotoViewController: UICollectionViewDataSource, UICollectionViewDeleg
         }
     }
     
-    
-    
 }
 
-extension PhotoViewController: PhotoView {
-    
-}
+extension PhotoViewController: PhotoView { }
 

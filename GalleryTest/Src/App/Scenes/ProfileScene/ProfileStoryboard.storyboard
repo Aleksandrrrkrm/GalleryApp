@@ -42,7 +42,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hEt-bz-YWN">
-                                <rect key="frame" x="0.0" y="279" width="414" height="583"/>
+                                <rect key="frame" x="0.0" y="319" width="414" height="543"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Kmz-aF-KZS">
                                     <size key="itemSize" width="128" height="128"/>
@@ -75,17 +75,64 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Views: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIA-ts-SbX">
+                                <rect key="frame" x="16" y="299" width="37" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="G1G-Bu-5SL"/>
+                                    <constraint firstAttribute="height" constant="12" id="Zpa-GV-9Rc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999+" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ty-Lu-RgF">
+                                <rect key="frame" x="55" y="299" width="37" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="4vH-Vh-8am"/>
+                                    <constraint firstAttribute="height" constant="12" id="FJn-t8-ga1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                                <color key="textColor" red="0.43137252329999998" green="0.43921568989999998" blue="0.45490196350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E6v-54-OJQ">
+                                <rect key="frame" x="92" y="299" width="45.5" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="12" id="WKD-2j-IqM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RoX-ap-xn0">
+                                <rect key="frame" x="139.5" y="299" width="37" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="12" id="SAv-rR-erE"/>
+                                    <constraint firstAttribute="width" constant="37" id="yeC-ce-Q2D"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                                <color key="textColor" red="0.43137252329999998" green="0.43921568989999998" blue="0.45490196350000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Vq1-9P-uI2"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="RoX-ap-xn0" firstAttribute="leading" secondItem="E6v-54-OJQ" secondAttribute="trailing" constant="2" id="3mK-lJ-khG"/>
+                            <constraint firstItem="8ty-Lu-RgF" firstAttribute="leading" secondItem="aIA-ts-SbX" secondAttribute="trailing" constant="2" id="Fce-6e-Qcq"/>
+                            <constraint firstItem="hEt-bz-YWN" firstAttribute="top" secondItem="8ty-Lu-RgF" secondAttribute="bottom" constant="8" symbolic="YES" id="I6G-l4-IlE"/>
                             <constraint firstItem="GEb-kv-LI0" firstAttribute="top" secondItem="Vq1-9P-uI2" secondAttribute="top" constant="20" id="LSs-lz-Mbc"/>
+                            <constraint firstItem="E6v-54-OJQ" firstAttribute="leading" secondItem="8ty-Lu-RgF" secondAttribute="trailing" id="M57-bT-dMm"/>
+                            <constraint firstItem="hEt-bz-YWN" firstAttribute="top" secondItem="RoX-ap-xn0" secondAttribute="bottom" constant="8" symbolic="YES" id="Oi7-os-cxK"/>
                             <constraint firstItem="rgl-lQ-3Bi" firstAttribute="centerX" secondItem="3vS-0V-mmE" secondAttribute="centerX" id="Pi3-9Y-FK9"/>
                             <constraint firstItem="hEt-bz-YWN" firstAttribute="leading" secondItem="Vq1-9P-uI2" secondAttribute="leading" id="Ww6-Q0-sm6"/>
                             <constraint firstItem="rgl-lQ-3Bi" firstAttribute="top" secondItem="GEb-kv-LI0" secondAttribute="bottom" constant="5" id="Xzo-rf-y09"/>
                             <constraint firstItem="hEt-bz-YWN" firstAttribute="bottom" secondItem="Vq1-9P-uI2" secondAttribute="bottom" id="dYh-U9-m5D"/>
-                            <constraint firstItem="hEt-bz-YWN" firstAttribute="top" secondItem="rgl-lQ-3Bi" secondAttribute="bottom" id="gt5-FB-3f3"/>
+                            <constraint firstItem="aIA-ts-SbX" firstAttribute="leading" secondItem="Vq1-9P-uI2" secondAttribute="leading" constant="16" id="gcZ-9j-3zm"/>
+                            <constraint firstItem="hEt-bz-YWN" firstAttribute="top" secondItem="rgl-lQ-3Bi" secondAttribute="bottom" constant="40" id="gt5-FB-3f3"/>
                             <constraint firstItem="Vq1-9P-uI2" firstAttribute="trailing" secondItem="hEt-bz-YWN" secondAttribute="trailing" id="hQF-tY-FC4"/>
+                            <constraint firstItem="hEt-bz-YWN" firstAttribute="top" secondItem="E6v-54-OJQ" secondAttribute="bottom" constant="8" symbolic="YES" id="omU-a6-WCD"/>
+                            <constraint firstItem="hEt-bz-YWN" firstAttribute="top" secondItem="aIA-ts-SbX" secondAttribute="bottom" constant="8" symbolic="YES" id="qqB-pv-fut"/>
                             <constraint firstItem="GEb-kv-LI0" firstAttribute="centerX" secondItem="3vS-0V-mmE" secondAttribute="centerX" id="wG0-bz-pRq"/>
                         </constraints>
                     </view>
@@ -93,6 +140,7 @@
                         <outlet property="collectionUserView" destination="hEt-bz-YWN" id="wYy-yL-jGJ"/>
                         <outlet property="imageView" destination="GEb-kv-LI0" id="L2y-JN-Zm8"/>
                         <outlet property="userNameLabel" destination="rgl-lQ-3Bi" id="qio-q1-2a7"/>
+                        <outlet property="userPhotosCount" destination="RoX-ap-xn0" id="X4K-fd-DVj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5dr-eC-V90" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

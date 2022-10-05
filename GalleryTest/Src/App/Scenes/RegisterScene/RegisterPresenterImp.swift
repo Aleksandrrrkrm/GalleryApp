@@ -54,30 +54,52 @@ class RegisterPresenterImp: RegisterPresenter {
     
     
     func authButtonPressed() {
-        
         router.openAuthScene()
     }
     
     
-    func validateUserName(userName: String, email: String, password: String, confirmPassword: String) -> String? {
-        
-        if userName != "" && email != "" && password != "" && confirmPassword != "" {
+    func validateUserName(userName: String) -> String? {
             do {
-                try validationUsecase.validation(userName: userName, email: email, password: password, confirmPassword: confirmPassword)
+                try validationUsecase.validationUserName(userName: userName)
             } catch ErrorValidate.invalidSymbol {
                 return R.string.errors.userNameInvalidSymbol()
+            } catch {
+                return error.localizedDescription
+            }
+            return nil
+    }
+    
+    func validateEmail(email: String) -> String? {
+            do {
+                try validationUsecase.validationEmail(email: email)
             } catch ErrorValidate.invalidEmail {
                 return R.string.errors.invalidEmail()
+            } catch {
+                return error.localizedDescription
+            }
+            return nil
+    }
+    
+    func validatePassword(password: String) -> String? {
+            do {
+                try validationUsecase.validationPassword(password: password)
             } catch ErrorValidate.lengthPassword {
                 return R.string.errors.lengthPassword()
+            } catch {
+                return error.localizedDescription
+            }
+            return nil
+    }
+    
+    func validateConfirmPassword(password: String, confirmPassword: String) -> String? {
+            do {
+                try validationUsecase.validationConfirmPassword(password: password, confirmPassword: confirmPassword)
             } catch ErrorValidate.passwordWrong {
                 return R.string.errors.wrongPassword()
             } catch {
                 return error.localizedDescription
             }
             return nil
-        }
-        return R.string.errors.emptyFields()
     }
     
 }

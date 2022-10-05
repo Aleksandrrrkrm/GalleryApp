@@ -12,16 +12,11 @@ import Foundation
 import UIKit
 
 protocol MainPresenter {
-    
-    func openDetailScene(photoName: String, photo: UIImage, description: String?, photoUserName: String?)
-   
+    func openDetailScene(data: PhotoData?,
+                         photo: UIImage)
     func getPhoto(isNew: Bool?, for search: String?)
-    
     var arrayPhotoData: [PhotoData] { get set }
-    
     var currentPage: Int { get set }
-    
     var totalItems: Int? { get set }
-    
     func resetCollectionData()
 }

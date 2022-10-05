@@ -58,9 +58,10 @@ class AddPhotoPresenterImp: AddPhotoPresenter {
                 .subscribe(onSuccess: {[weak self] photoEntity in
                     HUD.flash(.success, delay: 0.3)
                     self?.router.clearNavStack()
-                    self?.router.openSomeScene(photoString: photoEntity.name!,
-                                               photo: image ,
-                                               description: nil)
+                    let data = PhotoData(name: photo.name,
+                                         description: photo.description)
+                    self?.router.openSomeScene(data: data,
+                                               photo: image)
                     self?.view?.stopTimer()
                 }, onFailure: { error in
                     self.view?.stopTimer()

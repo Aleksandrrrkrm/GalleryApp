@@ -31,16 +31,25 @@ class DetailPresenterImp: DetailPresenter {
     }
     
     func getUserName(_ id: String) {
-        
         photoUsecase.getUserName(id)
             .observe(on: MainScheduler.instance)
             .subscribe { user in
                 self.view?.userNameLabel.text = user.username
             } onFailure: { error in
-                print(error.localizedDescription)
+                print("@@@\(error.localizedDescription)")
             }
-
+            .disposed(by: disposeBag)
     }
     
+    func parsingDate(_ date: String) {
+
+        let photoDate = date.split(separator: "T")
+        var newDate = photoDate[0].split(separator: "-")
+        newDate.reverse()
+        newDate.insert(".", at: 2)
+        newDate.insert(".", at: 1)
+        let result = "\(newDate[0])\(newDate[1])\(newDate[2])\(newDate[3])\(newDate[4])"
+        view?.dateLabel.text = result
+    }
     
 }
